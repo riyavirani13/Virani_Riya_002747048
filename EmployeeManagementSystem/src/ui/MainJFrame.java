@@ -4,6 +4,8 @@
  */
 package ui;
 
+import employeeDetails.Employee;
+
 /**
  *
  * @author riyavirani
@@ -13,9 +15,13 @@ public class MainJFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainJFrame
      */
+    
+    Employee employee;
     public MainJFrame() {
         initComponents();
+        employee = new Employee();
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -35,6 +41,8 @@ public class MainJFrame extends javax.swing.JFrame {
         values = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(790, 655));
+        setSize(new java.awt.Dimension(790, 655));
 
         splitPane.setPreferredSize(new java.awt.Dimension(460, 440));
 
@@ -83,7 +91,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(btnUpdate)
                 .addGap(18, 18, 18)
                 .addComponent(btnDelete)
-                .addContainerGap(272, Short.MAX_VALUE))
+                .addContainerGap(418, Short.MAX_VALUE))
         );
 
         controlPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnCreate, btnDelete, btnRead, btnUpdate});
@@ -94,11 +102,11 @@ public class MainJFrame extends javax.swing.JFrame {
         values.setLayout(valuesLayout);
         valuesLayout.setHorizontalGroup(
             valuesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 353, Short.MAX_VALUE)
+            .addGap(0, 537, Short.MAX_VALUE)
         );
         valuesLayout.setVerticalGroup(
             valuesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 439, Short.MAX_VALUE)
+            .addGap(0, 585, Short.MAX_VALUE)
         );
 
         splitPane.setRightComponent(values);
@@ -109,12 +117,12 @@ public class MainJFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(splitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
+                .addComponent(splitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 643, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(splitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 439, Short.MAX_VALUE)
+            .addComponent(splitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 585, Short.MAX_VALUE)
         );
 
         pack();
@@ -122,6 +130,10 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
+        
+         CreateJPanel createPanel = new CreateJPanel(employee);
+         splitPane.setRightComponent(createPanel);
+         
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
