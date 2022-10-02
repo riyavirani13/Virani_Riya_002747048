@@ -4,22 +4,55 @@
  */
 package employeeDetails;
 
+import java.awt.Image;
+import java.util.Date;
+import java.util.Map;
+
 /**
  *
  * @author riyavirani
  */
 public class Employee {
     private String name;
-    private String employeeId;
+    private int employeeId;
     private int age;
     private String gender;
     private String startDate;
-    private int level;
+    private String level;
     private String teamInfo;
     private String positionTitle;
-    //private String phoneNumber;
-    //private String emailAddress;
-    //private photo;
+    private Map<Long,String> contactDetails;
+    /*private long phoneNumber;
+    private String emailAddress;*/
+    private Image photo;
+    
+    public Employee(String name, int employeeId, int age, String gender, String startDate, String level, String teamInfo, String positionTitle, Map<Long,String> contactDetails/*, long phoneNumber, String emailAddress*//*, Image photo*/) {
+        this.name = name;
+        this.employeeId = employeeId;
+        this.age = age;
+        this.gender = gender;
+        this.startDate = startDate;
+        this.level = level;
+        this.teamInfo = teamInfo;
+        this.positionTitle = positionTitle;
+        this.contactDetails = contactDetails;
+        /*this.phoneNumber = phoneNumber;
+        this.emailAddress = emailAddress;*/
+        //this.photo = photo;
+    }
+
+    public Employee() {
+    }
+
+    public Map<Long, String> getContactDetails() {
+        return contactDetails;
+    }
+
+    public void setContactDetails(Map<Long, String> contactDetails) {
+        this.contactDetails = contactDetails;
+    }
+    
+    
 
     public String getName() {
         return name;
@@ -29,11 +62,11 @@ public class Employee {
         this.name = name;
     }
 
-    public String getEmployeeId() {
+    public int getEmployeeId() {
         return employeeId;
     }
 
-    public void setEmployeeId(String employeeId) {
+    public void setEmployeeId(int employeeId) {
         this.employeeId = employeeId;
     }
 
@@ -61,11 +94,11 @@ public class Employee {
         this.startDate = startDate;
     }
 
-    public int getLevel() {
+    public String getLevel() {
         return level;
     }
 
-    public void setLevel(int level) {
+    public void setLevel(String level) {
         this.level = level;
     }
 
@@ -83,6 +116,35 @@ public class Employee {
 
     public void setPositionTitle(String positionTitle) {
         this.positionTitle = positionTitle;
+    }
+
+    /*public long getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(long phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }*/
+
+    public Image getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(Image photo) {
+        this.photo = photo;
+    }
+
+    @Override
+    public String toString(){
+        return name;
     }
     
     

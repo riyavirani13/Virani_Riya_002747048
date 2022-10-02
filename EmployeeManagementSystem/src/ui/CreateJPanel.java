@@ -5,6 +5,10 @@
 package ui;
 
 import employeeDetails.Employee;
+import employeeDetails.EmployeeHistory;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,10 +20,10 @@ public class CreateJPanel extends javax.swing.JPanel {
     /**
      * Creates new form CreateJPanel
      */
-    Employee employee;
-    public CreateJPanel(Employee employee) {
+    EmployeeHistory employeeList;
+    public CreateJPanel(EmployeeHistory employeeList) {
         initComponents();
-        this.employee = employee;
+        this.employeeList = employeeList;
     }
 
     /**
@@ -55,12 +59,12 @@ public class CreateJPanel extends javax.swing.JPanel {
         txtEmail = new javax.swing.JTextField();
         txtPhoto = new javax.swing.JTextField();
         btnCreate = new javax.swing.JButton();
+        btnClear = new javax.swing.JButton();
 
-        setPreferredSize(new java.awt.Dimension(690, 655));
-        setSize(new java.awt.Dimension(570, 655));
+        setPreferredSize(new java.awt.Dimension(1500, 1200));
+        setSize(new java.awt.Dimension(1500, 1200));
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 20)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Add Employee");
 
         lblName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -85,7 +89,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         lblTeamInfo.setText("Team Info");
 
         lblPosition.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblPosition.setText("Position Level");
+        lblPosition.setText("Position Title");
 
         lblPhone.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblPhone.setText("Cell Phone Number");
@@ -171,15 +175,21 @@ public class CreateJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnClear.setFont(new java.awt.Font("Helvetica Neue", 1, 15)); // NOI18N
+        btnClear.setText("Clear");
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnCreate))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(145, 145, 145)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
@@ -197,6 +207,10 @@ public class CreateJPanel extends javax.swing.JPanel {
                     .addComponent(lblPhoto, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnCreate)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnClear))
                     .addComponent(txtName)
                     .addComponent(txtEmpId)
                     .addComponent(txtAge)
@@ -208,7 +222,7 @@ public class CreateJPanel extends javax.swing.JPanel {
                     .addComponent(txtPhone)
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPhoto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(142, 142, 142))
+                .addContainerGap(142, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblAge, lblEmail, lblEmpId, lblGender, lblLevel, lblName, lblPhone, lblPhoto, lblPosition, lblStartDate, lblTeamInfo});
@@ -265,8 +279,10 @@ public class CreateJPanel extends javax.swing.JPanel {
                     .addComponent(lblPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPhoto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btnCreate)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCreate)
+                    .addComponent(btnClear))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblAge, lblEmail, lblEmpId, lblGender, lblLevel, lblPhone, lblPhoto, lblPosition, lblStartDate, lblTeamInfo});
@@ -323,21 +339,70 @@ public class CreateJPanel extends javax.swing.JPanel {
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
+       
+
+        String name = txtName.getText();
+        int empId = Integer.parseInt(txtEmpId.getText());
+        int age = Integer.parseInt(txtEmpId.getText());
+        String gender = txtGender.getText();
+        String startDate = txtStartDate.getText();
+        String level = txtLevel.getText();
+        String teamInfo = txtTeamInfo.getText();
+        String positionTitle = txtPosition.getText();
+        Map contactDetails = new HashMap<Long,String>();
         
-        employee.setName(txtName.getText());
-        employee.setEmployeeId(txtName.getText());
-        employee.setAge(Integer.parseInt(txtAge.getText()));
-        employee.setGender(txtGender.getText());
-        employee.setStartDate(txtStartDate.getText());
-        employee.setLevel(Integer.parseInt(txtLevel.getText()));
-        employee.setTeamInfo(txtTeamInfo.getText());
-        employee.setPositionTitle(txtPosition.getText());
         
+        long phone = Long.parseLong(txtPhone.getText());
+        String email = txtEmail.getText();
+        
+        contactDetails.put(phone, email);
+        
+        //Employee e = employeeList.addNewEmployee();
+        
+        Employee e = new Employee(name, empId, age, gender, startDate, level, teamInfo, positionTitle, contactDetails /*phone, email*/);
+        boolean checkAdd = employeeList.addNewEmployee(e);
+        
+        /*e.setName(name);
+        e.setEmployeeId(empId);
+        e.setAge(age);
+        e.setGender(gender);
+        e.setStartDate(startDate);
+        e.setLevel(level);
+        e.setTeamInfo(teamInfo);
+        e.setPositionTitle(positionTitle);
+        e.setPhoneNumber(phone);
+        e.setEmailAddress(email);*/
+        if(checkAdd){
+            JOptionPane.showMessageDialog(this, "Employee Details Added Successfully");
+            clearFields();
+        }
+        else {
+            JOptionPane.showMessageDialog(this, "Employee Id already exists");
+            txtEmpId.setText("");
+        }
         
     }//GEN-LAST:event_btnCreateActionPerformed
 
+    private void clearFields(){
+        txtName.setText("");
+        txtEmpId.setText("");
+        txtAge.setText("");
+        txtGender.setText("");
+        txtStartDate.setText("");
+        txtLevel.setText("");
+        txtTeamInfo.setText("");
+        txtPosition.setText("");
+        txtPhone.setText("");
+        txtEmail.setText("");
+    }
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
+        // TODO add your handling code here:
+        clearFields();
+    }//GEN-LAST:event_btnClearActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnClear;
     private javax.swing.JButton btnCreate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblAge;
