@@ -81,7 +81,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(btnCreate)
                 .addGap(18, 18, 18)
                 .addComponent(btnView)
-                .addContainerGap(703, Short.MAX_VALUE))
+                .addContainerGap(1115, Short.MAX_VALUE))
         );
 
         controlPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnCreate, btnView});
@@ -99,14 +99,14 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(valuesLayout.createSequentialGroup()
                 .addGap(185, 185, 185)
                 .addComponent(jLabel1)
-                .addContainerGap(317, Short.MAX_VALUE))
+                .addContainerGap(782, Short.MAX_VALUE))
         );
         valuesLayout.setVerticalGroup(
             valuesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(valuesLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jLabel1)
-                .addContainerGap(742, Short.MAX_VALUE))
+                .addContainerGap(1154, Short.MAX_VALUE))
         );
 
         splitPane.setRightComponent(values);
@@ -117,15 +117,16 @@ public class MainJFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(splitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1023, Short.MAX_VALUE)
+                .addComponent(splitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1488, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(splitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 788, Short.MAX_VALUE)
+            .addComponent(splitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1200, Short.MAX_VALUE)
         );
 
-        pack();
+        setSize(new java.awt.Dimension(1500, 1200));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed

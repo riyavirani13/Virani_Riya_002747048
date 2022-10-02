@@ -6,8 +6,14 @@ package ui;
 
 import employeeDetails.Employee;
 import employeeDetails.EmployeeHistory;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 
 /**
@@ -19,14 +25,50 @@ public class ViewJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ReadJPanel
      */
-    
+    int selectedRowIndex;
     EmployeeHistory employeeList;
     public ViewJPanel(EmployeeHistory employeeList) {
         initComponents();
         this.employeeList = employeeList;
         populateTable();
+        searchInTable();
     }
 
+    private void searchInTable(){
+        DefaultTableModel model = (DefaultTableModel) tblEmployeeDetails.getModel();
+        TableRowSorter sorter = new TableRowSorter<>(model);
+        tblEmployeeDetails.setRowSorter(sorter);
+        txtSearch.getDocument().addDocumentListener(new DocumentListener(){
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+                search(txtSearch.getText());
+                
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+                search(txtSearch.getText());
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+                search(txtSearch.getText());
+            }
+
+            private void search(String str) {
+                //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+                if (str.length() == 0) {
+                    sorter.setRowFilter(null);
+                } else {
+                    sorter.setRowFilter(RowFilter.regexFilter(str));
+                }
+            }
+            
+        });
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -75,7 +117,15 @@ public class ViewJPanel extends javax.swing.JPanel {
             new String [] {
                 "Name", "Employee Id", "Age", "Gender", "Start Date", "Level", "Team Info", "Position Title", "Cell Phone Number", "Email Address"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tblEmployeeDetails);
 
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 20)); // NOI18N
@@ -363,7 +413,7 @@ public class ViewJPanel extends javax.swing.JPanel {
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
         clearFields();
-        int selectedRowIndex = tblEmployeeDetails.getSelectedRow();
+        selectedRowIndex = tblEmployeeDetails.getSelectedRow();
         
         if (selectedRowIndex<0) {
             JOptionPane.showMessageDialog(this, "Please select a row to delete!");
@@ -385,13 +435,16 @@ public class ViewJPanel extends javax.swing.JPanel {
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
         // TODO add your handling code here:
         clearFields();
-        int selectedRowIndex = tblEmployeeDetails.getSelectedRow();
+        selectedRowIndex = tblEmployeeDetails.getSelectedRow();
         
         if (selectedRowIndex<0) {
             JOptionPane.showMessageDialog(this, "Please select a row to view!");
             return;
         }
-        
+        if(tblEmployeeDetails.getRowCount()==0){
+            JOptionPane.showMessageDialog(this, "No records in the table");
+            return;
+        }
         DefaultTableModel model = (DefaultTableModel) tblEmployeeDetails.getModel();
         Employee selectedEmployee = (Employee) model.getValueAt(selectedRowIndex, 0);
         
@@ -403,8 +456,8 @@ public class ViewJPanel extends javax.swing.JPanel {
         txtLevel.setText(selectedEmployee.getLevel());
         txtTeamInfo.setText(selectedEmployee.getTeamInfo());
         txtPosition.setText(selectedEmployee.getPositionTitle());
-        txtPhone.setText(String.valueOf(selectedEmployee.getContactDetails().keySet()));
-        txtEmail.setText(selectedEmployee.getContactDetails().values().toString());
+        txtPhone.setText(String.valueOf(selectedEmployee.getContactDetails().keySet()).replaceAll("[\\[\\],]",""));
+        txtEmail.setText(selectedEmployee.getContactDetails().values().toString().replaceAll("[\\[\\],]",""));
         
         
     }//GEN-LAST:event_btnViewActionPerformed
@@ -425,7 +478,60 @@ public class ViewJPanel extends javax.swing.JPanel {
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
         
-        
+        DefaultTableModel model = (DefaultTableModel) tblEmployeeDetails.getModel();
+        if (tblEmployeeDetails.getSelectedRowCount()==1){
+            String name = txtName.getText();
+            int empId = Integer.parseInt(txtEmpId.getText());
+            int age = Integer.parseInt(txtEmpId.getText());
+            String gender = txtGender.getText();
+            String startDate = txtStartDate.getText();
+            String level = txtLevel.getText();
+            String teamInfo = txtTeamInfo.getText();
+            String positionTitle = txtPosition.getText();
+            Map contactDetails = new HashMap<Long,String>();
+            long phone = Long.parseLong(txtPhone.getText());
+            String email = txtEmail.getText();
+            contactDetails.put(phone, email);
+            
+            tblEmployeeDetails.setValueAt(name, selectedRowIndex, 0);
+            tblEmployeeDetails.setValueAt(empId, selectedRowIndex, 1);
+            tblEmployeeDetails.setValueAt(age, selectedRowIndex, 2);
+            tblEmployeeDetails.setValueAt(gender, selectedRowIndex, 3);
+            tblEmployeeDetails.setValueAt(startDate, selectedRowIndex, 4);
+            tblEmployeeDetails.setValueAt(level, selectedRowIndex, 5);
+            tblEmployeeDetails.setValueAt(teamInfo, selectedRowIndex, 6);
+            tblEmployeeDetails.setValueAt(positionTitle, selectedRowIndex, 7);
+            tblEmployeeDetails.setValueAt(phone, selectedRowIndex, 8);
+            tblEmployeeDetails.setValueAt(email, selectedRowIndex, 9);
+            
+            Employee e = employeeList.findEmployee((int) tblEmployeeDetails.getValueAt(selectedRowIndex, 1));
+
+            e.setName(name);
+            
+            JOptionPane.showMessageDialog(this, "Employee details updated successfully!");
+            clearFields();
+            
+            
+            
+            /*tblEmployeeDetails.getValueAt(selectedRowIndex, 0),
+                    tblEmployeeDetails.getValueAt(selectedRowIndex, 1),
+                    tblEmployeeDetails.getValueAt(selectedRowIndex, 2),
+                    tblEmployeeDetails.getValueAt(selectedRowIndex, 3),
+                    tblEmployeeDetails.getValueAt(selectedRowIndex, 4),
+                    tblEmployeeDetails.getValueAt(selectedRowIndex, 5),
+                    tblEmployeeDetails.getValueAt(selectedRowIndex, 6),
+                    tblEmployeeDetails.getValueAt(selectedRowIndex, 7),
+                    tblEmployeeDetails.getValueAt(selectedRowIndex, 8),
+                    tblEmployeeDetails.getValueAt(selectedRowIndex, 9)*/
+            
+        }
+        else{
+             if(tblEmployeeDetails.getRowCount()==0){
+                 JOptionPane.showMessageDialog(this, "No records in the table");
+             }else{
+                 JOptionPane.showMessageDialog(this, "Please select a single row to update");
+             }
+        }
         
         
         
@@ -435,6 +541,10 @@ public class ViewJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSearchActionPerformed
 
+    
+    
+    
+    
     private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
         // TODO add your handling code here:
         
