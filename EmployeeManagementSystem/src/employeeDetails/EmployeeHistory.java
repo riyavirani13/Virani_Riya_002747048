@@ -5,6 +5,7 @@
 package employeeDetails;
 
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -27,11 +28,30 @@ public class EmployeeHistory {
     
     public boolean addNewEmployee(Employee e){
         //Employee newEmployee = new Employee();
+        //boolean bName = Pattern.matches("^[A-Za-z0-9]*$", e.getName());
+        //boolean bPhone = Pattern.matches("[0-9]{10}", e.getContactDetails().keySet().toString().replaceAll("[\\[\\],]", ""));
+        //boolean bAge = Pattern.matches("[0-9]", Integer.toString(e.getAge()));
+        /*boolean b=false;
+        if(findEmployee(e.getEmployeeId())==null){
+            boolean bName = Pattern.matches("^[A-Za-z0-9]*$", e.getName());
+            if(bName){
+                boolean bPhone = Pattern.matches("[0-9]{10}", e.getContactDetails().keySet().toString().replaceAll("[\\[\\],]", ""));
+                if(bPhone){
+                    boolean bAge = Pattern.matches("[0-9]", Integer.toString(e.getAge()));
+                    employeeHistory.add(e);
+                    b=true;
+                }
+            }
+        }
+        else 
+            b=false;
+        
+        return b;*/
         if(findEmployee(e.getEmployeeId())==null){
             employeeHistory.add(e);
             return true;
         }
-        else 
+        else
             return false;
     }
     

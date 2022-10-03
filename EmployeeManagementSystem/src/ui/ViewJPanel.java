@@ -488,7 +488,6 @@ public class ViewJPanel extends javax.swing.JPanel {
         txtEmpId.setText(String.valueOf(selectedEmployee.getEmployeeId()));
         txtAge.setText(String.valueOf(selectedEmployee.getAge()));
         ddGender.setSelectedItem(selectedEmployee.getGender());
-                //setText(selectedEmployee.getGender());
         txtStartDate.setText(selectedEmployee.getStartDate());
         txtLevel.setText(selectedEmployee.getLevel());
         txtTeamInfo.setText(selectedEmployee.getTeamInfo());

@@ -16,6 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Pattern;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -32,6 +33,7 @@ public class CreateJPanel extends javax.swing.JPanel {
      * Creates new form CreateJPanel
      */
     EmployeeHistory employeeList;
+    
     public CreateJPanel(EmployeeHistory employeeList) {
         initComponents();
         this.employeeList = employeeList;
@@ -385,21 +387,39 @@ public class CreateJPanel extends javax.swing.JPanel {
         contactDetails.put(phone, email);
         ImageIcon photo = new ImageIcon(lblPhotoPath.getText());
         
-                
-        
-        Employee e = new Employee(name, empId, age, gender, startDate, level, teamInfo, positionTitle, contactDetails, photo);
-        boolean checkAdd = employeeList.addNewEmployee(e);
-        
- 
-        if(checkAdd){
-            JOptionPane.showMessageDialog(this, "Employee Details Added Successfully");
-            clearFields();
+        boolean bName = Pattern.matches("^[A-Za-z0-9]*$", name);
+        boolean bPhone = Pattern.matches("[0-9]{10}", Long.toString(phone));
+        boolean bAge = Pattern.matches("[0-9]", Integer.toString(age));
+        if(!bName){
+            JOptionPane.showMessageDialog(this, "Name field should only have Alphanumeric characters. Special characters are not allowed. Please try again!");
+            txtName.setText("");
+            return;
         }
-        else {
-            JOptionPane.showMessageDialog(this, "Employee Id already exists");
-            txtEmpId.setText("");
-        }
+        else{
+            if(!bPhone){
+                JOptionPane.showMessageDialog(this, "Cell Phone Number field should only have 10 digits (0-9). Alphabets and special characters are not allowed. Please try again!");
+                txtPhone.setText("");
+                return;
+            }
+            else{
+                Employee e = new Employee(name, empId, age, gender, startDate, level, teamInfo, positionTitle, contactDetails, photo);
+            boolean checkAdd = employeeList.addNewEmployee(e);
+
+
+            if(checkAdd){
+                JOptionPane.showMessageDialog(this, "Employee Details Added Successfully");
+                clearFields();
+            }
+            else {
+                JOptionPane.showMessageDialog(this, "Employee Id already exists");
+                txtEmpId.setText("");
+            }
+            }
+            
         
+        
+            
+        }
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void clearFields(){
