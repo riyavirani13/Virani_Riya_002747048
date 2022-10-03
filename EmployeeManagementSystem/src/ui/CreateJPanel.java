@@ -410,18 +410,26 @@ public class CreateJPanel extends javax.swing.JPanel {
                     return;
                 }
                 else{
-                    Employee e = new Employee(name, empId, age, gender, startDate, level, teamInfo, positionTitle, contactDetails, photo);
-                    boolean checkAdd = employeeList.addNewEmployee(e);
+                    if(lblPhotoPath.getText().equals("Please choose a photograph") || lblPhotoPath.getText().equals("")){
+                        JOptionPane.showMessageDialog(this, "No photo chosen. Please try again!");
+                    lblPhotoPath.setText("");
+                    return;
+                    }
+                    else{
+                        Employee e = new Employee(name, empId, age, gender, startDate, level, teamInfo, positionTitle, contactDetails, photo);
+                        boolean checkAdd = employeeList.addNewEmployee(e);
 
 
-                    if(checkAdd){
-                        JOptionPane.showMessageDialog(this, "Employee Details Added Successfully");
-                        clearFields();
+                        if(checkAdd){
+                            JOptionPane.showMessageDialog(this, "Employee Details Added Successfully");
+                            clearFields();
+                        }
+                        else {
+                            JOptionPane.showMessageDialog(this, "Employee Id already exists");
+                            txtEmpId.setText("");
+                        }
                     }
-                    else {
-                        JOptionPane.showMessageDialog(this, "Employee Id already exists");
-                        txtEmpId.setText("");
-                    }
+                        
                 }
                     
             }
