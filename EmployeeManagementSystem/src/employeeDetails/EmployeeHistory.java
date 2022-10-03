@@ -11,24 +11,24 @@ import java.util.ArrayList;
  * @author riyavirani
  */
 public class EmployeeHistory {
-    private ArrayList<Employee> history;
+    private ArrayList<Employee> employeeHistory;
     
     public EmployeeHistory(){
-        this.history = new ArrayList<Employee>();
+        this.employeeHistory = new ArrayList<Employee>();
     }
 
-    public ArrayList<Employee> getHistory() {
-        return history;
+    public ArrayList<Employee> getEmployeeHistory() {
+        return employeeHistory;
     }
 
-    public void setHistory(ArrayList<Employee> history) {
-        this.history = history;
+    public void setEmployeeHistory(ArrayList<Employee> employeeHistory) {
+        this.employeeHistory = employeeHistory;
     }
     
     public boolean addNewEmployee(Employee e){
         //Employee newEmployee = new Employee();
         if(findEmployee(e.getEmployeeId())==null){
-            history.add(e);
+            employeeHistory.add(e);
             return true;
         }
         else 
@@ -36,7 +36,7 @@ public class EmployeeHistory {
     }
     
     public Employee findEmployee(int empId){
-        for(Employee e : history){
+        for(Employee e : employeeHistory){
             if(e.getEmployeeId()==empId){
                 return e;
             }
@@ -46,18 +46,18 @@ public class EmployeeHistory {
     
 
     /*public void deleteEmployee(Employee selectedEmployee) {
-        history.remove(selectedEmployee);
+        employeeHistory.remove(selectedEmployee);
     }*/
     
     public void deleteEmployee(int selectedEmployeeId) {
         Employee emp1 = new Employee();
-        for(Employee employee : history){
+        for(Employee employee : employeeHistory){
             if(employee.getEmployeeId()==selectedEmployeeId){
                 emp1=employee;
                 break;
             }
         }
-        history.remove(emp1);
+        employeeHistory.remove(emp1);
     }
 
     

@@ -7,6 +7,7 @@ package employeeDetails;
 import java.awt.Image;
 import java.util.Date;
 import java.util.Map;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -24,9 +25,9 @@ public class Employee {
     private Map<Long,String> contactDetails;
     /*private long phoneNumber;
     private String emailAddress;*/
-    private Image photo;
+    private ImageIcon photo;
     
-    public Employee(String name, int employeeId, int age, String gender, String startDate, String level, String teamInfo, String positionTitle, Map<Long,String> contactDetails/*, long phoneNumber, String emailAddress*//*, Image photo*/) {
+    public Employee(String name, int employeeId, int age, String gender, String startDate, String level, String teamInfo, String positionTitle, Map<Long,String> contactDetails, ImageIcon photo) {
         this.name = name;
         this.employeeId = employeeId;
         this.age = age;
@@ -36,9 +37,7 @@ public class Employee {
         this.teamInfo = teamInfo;
         this.positionTitle = positionTitle;
         this.contactDetails = contactDetails;
-        /*this.phoneNumber = phoneNumber;
-        this.emailAddress = emailAddress;*/
-        //this.photo = photo;
+        this.photo = photo;
     }
 
     public Employee() {
@@ -134,13 +133,15 @@ public class Employee {
         this.emailAddress = emailAddress;
     }*/
 
-    public Image getPhoto() {
+    public ImageIcon getPhoto() {
         return photo;
     }
 
-    public void setPhoto(Image photo) {
+    public void setPhoto(ImageIcon photo) {
         this.photo = photo;
     }
+    
+    
 
     @Override
     public String toString(){
