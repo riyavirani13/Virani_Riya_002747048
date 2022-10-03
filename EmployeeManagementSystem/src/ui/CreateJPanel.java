@@ -390,6 +390,8 @@ public class CreateJPanel extends javax.swing.JPanel {
         boolean bName = Pattern.matches("^[A-Za-z0-9]*$", name);
         boolean bPhone = Pattern.matches("[0-9]{10}", Long.toString(phone));
         boolean bAge = Pattern.matches("[0-9]", Integer.toString(age));
+        boolean bEmail = Pattern.matches("^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$", email);
+        
         if(!bName){
             JOptionPane.showMessageDialog(this, "Name field should only have Alphanumeric characters. Special characters are not allowed. Please try again!");
             txtName.setText("");
@@ -402,23 +404,28 @@ public class CreateJPanel extends javax.swing.JPanel {
                 return;
             }
             else{
-                Employee e = new Employee(name, empId, age, gender, startDate, level, teamInfo, positionTitle, contactDetails, photo);
-            boolean checkAdd = employeeList.addNewEmployee(e);
+                if(!bEmail){
+                    JOptionPane.showMessageDialog(this, "Invalid email. Please try again!");
+                    txtEmail.setText("");
+                    return;
+                }
+                else{
+                    Employee e = new Employee(name, empId, age, gender, startDate, level, teamInfo, positionTitle, contactDetails, photo);
+                    boolean checkAdd = employeeList.addNewEmployee(e);
 
 
-            if(checkAdd){
-                JOptionPane.showMessageDialog(this, "Employee Details Added Successfully");
-                clearFields();
+                    if(checkAdd){
+                        JOptionPane.showMessageDialog(this, "Employee Details Added Successfully");
+                        clearFields();
+                    }
+                    else {
+                        JOptionPane.showMessageDialog(this, "Employee Id already exists");
+                        txtEmpId.setText("");
+                    }
+                }
+                    
             }
-            else {
-                JOptionPane.showMessageDialog(this, "Employee Id already exists");
-                txtEmpId.setText("");
-            }
-            }
-            
-        
-        
-            
+           
         }
     }//GEN-LAST:event_btnCreateActionPerformed
 
