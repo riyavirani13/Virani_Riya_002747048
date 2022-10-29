@@ -15,8 +15,8 @@ public class Patient extends Person{
     private int patientId;
     private EncounterHistory encounterHistory;
 
-    public Patient(int patientId, EncounterHistory encounterHistory, String fullName, House residence, String gender, Date dob, int age, String username, String passsword, String role, int personId) {
-        super(fullName, residence, gender, dob, age, username, passsword, role, personId);
+    public Patient(int patientId, EncounterHistory encounterHistory, String fullName, House residence, String gender, String dob, int age, String username, String passsword, String role/*, int personId*/) {
+        super(fullName, residence, gender, dob, age, username, passsword, role/*, personId*/);
         this.patientId = patientId;
         this.encounterHistory = encounterHistory;
     }

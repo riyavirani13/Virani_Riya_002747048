@@ -14,23 +14,23 @@ public class Person {
     private String fullName;
     private House residence;
     private String gender;
-    private Date dob;
+    private String dob;
     private int age;
     private String username;
-    private String passsword;
+    private String password;
     private String role;
-    private int personId;
+    //private int personId;
 
-    public Person(String fullName, House residence, String gender, Date dob, int age, String username, String passsword, String role, int personId) {
+    public Person(String fullName, House residence, String gender, String dob, int age, String username, String password, String role/*, int personId*/) {
         this.fullName = fullName;
         this.residence = residence;
         this.gender = gender;
         this.dob = dob;
         this.age = age;
         this.username = username;
-        this.passsword = passsword;
+        this.password = password;
         this.role = role;
-        this.personId = personId;
+        //this.personId = personId;
     }
 
     public String getFullName() {
@@ -57,11 +57,11 @@ public class Person {
         this.gender = gender;
     }
 
-    public Date getDob() {
+    public String getDob() {
         return dob;
     }
 
-    public void setDob(Date dob) {
+    public void setDob(String dob) {
         this.dob = dob;
     }
 
@@ -81,12 +81,12 @@ public class Person {
         this.username = username;
     }
 
-    public String getPasssword() {
-        return passsword;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPasssword(String passsword) {
-        this.passsword = passsword;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getRole() {
@@ -97,6 +97,7 @@ public class Person {
         this.role = role;
     }
 
+    /*
     public int getPersonId() {
         return personId;
     }
@@ -104,6 +105,6 @@ public class Person {
     public void setPersonId(int personId) {
         this.personId = personId;
     }
-    
+    */
     
 }

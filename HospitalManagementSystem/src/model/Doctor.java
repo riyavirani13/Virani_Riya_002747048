@@ -16,8 +16,8 @@ public class Doctor extends Person {
     private int hospitalId;
     private ArrayList<VitalSigns> vitalSigns;
 
-    public Doctor(int doctorId, int hospitalId, ArrayList<VitalSigns> vitalSigns, String fullName, House residence, String gender, Date dob, int age, String username, String passsword, String role, int personId) {
-        super(fullName, residence, gender, dob, age, username, passsword, role, personId);
+    public Doctor(int doctorId, int hospitalId, ArrayList<VitalSigns> vitalSigns, String fullName, House residence, String gender, String dob, int age, String username, String passsword, String role/*, int personId*/) {
+        super(fullName, residence, gender, dob, age, username, passsword, role/*, personId*/);
         this.doctorId = doctorId;
         this.hospitalId = hospitalId;
         this.vitalSigns = vitalSigns;

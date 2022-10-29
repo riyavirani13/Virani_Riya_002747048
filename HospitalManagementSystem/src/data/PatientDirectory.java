@@ -6,25 +6,38 @@ package data;
 
 import java.util.ArrayList;
 import model.Patient;
+import model.Person;
 
 /**
  *
  * @author riyavirani
  */
 public class PatientDirectory {
-    private ArrayList<Patient> patient; 
+    private ArrayList<Patient> patientList; 
 
     public PatientDirectory(ArrayList<Patient> patients) {
-        this.patient = patients;
+        this.patientList = patients;
+    }
+
+    public PatientDirectory() {
+        this.patientList = new ArrayList<Patient>();
+        
     }
 
     public ArrayList<Patient> getPatient() {
-        return patient;
+        return patientList;
     }
 
     public void setPatient(ArrayList<Patient> patient) {
-        this.patient = patient;
+        this.patientList = patient;
+    }
+
+    public void addPatient(Patient patient) {
+        patientList.add(patient);
     }
     
+    public void removePatient(Patient patient) {
+        patientList.remove(patient);
+    }
     
 }

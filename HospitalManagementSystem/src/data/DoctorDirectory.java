@@ -12,18 +12,22 @@ import model.Doctor;
  * @author riyavirani
  */
 public class DoctorDirectory {
-    private ArrayList<Doctor> doctor;
+    private ArrayList<Doctor> doctorList;
 
     public DoctorDirectory(ArrayList<Doctor> doctors) {
-        this.doctor = doctors;
+        this.doctorList = doctors;
+    }
+
+    public DoctorDirectory() {
+        this.doctorList = new ArrayList<Doctor>();
     }
 
     public ArrayList<Doctor> getDoctor() {
-        return doctor;
+        return doctorList;
     }
 
     public void setDoctor(ArrayList<Doctor> doctor) {
-        this.doctor = doctor;
+        this.doctorList = doctor;
     }
 
     

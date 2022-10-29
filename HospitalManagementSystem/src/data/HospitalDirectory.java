@@ -5,27 +5,29 @@
 package data;
 
 import java.util.ArrayList;
-import model.City;
 import model.Hospital;
-import model.Patient;
 
 /**
  *
  * @author riyavirani
  */
 public class HospitalDirectory {
-    private ArrayList<Hospital> hospital;
+    private ArrayList<Hospital> hospitalList;
 
     public HospitalDirectory(ArrayList<Hospital> hospital) {
-        this.hospital = hospital;
+        this.hospitalList = hospital;
+    }
+
+    public HospitalDirectory() {
+        this.hospitalList = new ArrayList<Hospital>();
     }
 
     public ArrayList<Hospital> getHospital() {
-        return hospital;
+        return hospitalList;
     }
 
     public void setHospital(ArrayList<Hospital> hospital) {
-        this.hospital = hospital;
+        this.hospitalList = hospital;
     }
 
     

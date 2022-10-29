@@ -13,18 +13,18 @@ import model.Patient;
  * @author riyavirani
  */
 public class EncounterHistory {
-    private ArrayList<Encounter> encounter;
+    private ArrayList<Encounter> encounterList;
 
-    public EncounterHistory(ArrayList<Encounter> encounter) {
-        this.encounter = encounter;
+    public EncounterHistory() {
+        this.encounterList = new ArrayList<Encounter>();
     }
 
     public ArrayList<Encounter> getEncounter() {
-        return encounter;
+        return encounterList;
     }
 
     public void setEncounter(ArrayList<Encounter> encounter) {
-        this.encounter = encounter;
+        this.encounterList = encounter;
     }
 
     

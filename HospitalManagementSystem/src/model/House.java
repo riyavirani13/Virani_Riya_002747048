@@ -14,9 +14,9 @@ public class House {
     private String state;
     private int communityId;
     private String cityName;
-    private int zipcode;
+    private String zipcode;
 
-    public House(String address, String aptNo, String state, int communityId, String cityName, int zipcode) {
+    public House(String address, String aptNo, String state, int communityId, String cityName, String zipcode) {
         this.address = address;
         this.aptNo = aptNo;
         this.state = state;
@@ -65,11 +65,11 @@ public class House {
         this.cityName = cityName;
     }
 
-    public int getZipcode() {
+    public String getZipcode() {
         return zipcode;
     }
 
-    public void setZipcode(int zipcode) {
+    public void setZipcode(String zipcode) {
         this.zipcode = zipcode;
     }
    
