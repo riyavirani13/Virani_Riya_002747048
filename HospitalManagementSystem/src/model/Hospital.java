@@ -11,11 +11,23 @@ package model;
 public class Hospital {
     private int hospitalId;
     private String hospitalName;
+    private String communityName;
 
-    public Hospital(int hospitalId, String hospitalName) {
+    public Hospital(int hospitalId, String hospitalName, String communityName) {
         this.hospitalId = hospitalId;
         this.hospitalName = hospitalName;
+        this.communityName = communityName;
     }
+
+    public String getCommunityName() {
+        return communityName;
+    }
+
+    public void setCommunityName(String communityName) {
+        this.communityName = communityName;
+    }
+
+    
 
     public int getHospitalId() {
         return hospitalId;
@@ -31,6 +43,11 @@ public class Hospital {
 
     public void setHospitalName(String hospitalName) {
         this.hospitalName = hospitalName;
+    }
+    
+    @Override
+    public String toString(){
+        return hospitalName;
     }
     
     

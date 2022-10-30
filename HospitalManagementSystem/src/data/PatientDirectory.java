@@ -23,6 +23,15 @@ public class PatientDirectory {
         this.patientList = new ArrayList<Patient>();
         
     }
+    
+    public Patient getCurrentPatient(String username, String password){
+        for(Patient p:this.patientList){
+            if(p.getUsername().equals(username) && p.getPassword().equals(password)){
+                return p;
+            }
+        }
+        return null;
+    }
 
     public ArrayList<Patient> getPatient() {
         return patientList;

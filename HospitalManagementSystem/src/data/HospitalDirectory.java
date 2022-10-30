@@ -30,5 +30,12 @@ public class HospitalDirectory {
         this.hospitalList = hospital;
     }
 
+    public void addHospital(Hospital hosp) {
+        hospitalList.add(hosp);
+    }
+
+    public void removeHospital(Hospital hosp) {
+        hospitalList.remove(hosp);
+    }
     
 }

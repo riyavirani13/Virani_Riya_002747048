@@ -14,13 +14,34 @@ import java.util.Date;
 public class Patient extends Person{
     private int patientId;
     private EncounterHistory encounterHistory;
+    private Encounter encounter;
+    private int hospitalId;
 
-    public Patient(int patientId, EncounterHistory encounterHistory, String fullName, House residence, String gender, String dob, int age, String username, String passsword, String role/*, int personId*/) {
+    public Patient(int patientId, EncounterHistory encounterHistory, Encounter encounter, String fullName, House residence, String gender, String dob, int age, String username, String passsword, String role/*, int personId*/) {
         super(fullName, residence, gender, dob, age, username, passsword, role/*, personId*/);
         this.patientId = patientId;
         this.encounterHistory = encounterHistory;
+        this.encounter = encounter;
+        this.hospitalId = 0;
     }
 
+    public int getHospitalId() {
+        return hospitalId;
+    }
+
+    public void setHospitalId(int hospitalId) {
+        this.hospitalId = hospitalId;
+    }
+
+    public Encounter getEncounter() {
+        return encounter;
+    }
+
+    public void setEncounter(Encounter encounter) {
+        this.encounter = encounter;
+    }
+
+    
     public int getPatientId() {
         return patientId;
     }
@@ -37,5 +58,13 @@ public class Patient extends Person{
         this.encounterHistory = encounterHistory;
     }
     
+    @Override
+    public String toString(){
+        return this.getFullName();
+    }
+
+    public void addEncounterHistory(Encounter encounter) {
+        encounterHistory.getEncounter().add(encounter);
+    }
     
 }

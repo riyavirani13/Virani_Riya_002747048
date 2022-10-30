@@ -9,21 +9,21 @@ package model;
  * @author riyavirani
  */
 public class VitalSigns {
-    private float temp;
+    private String temp;
     private int pulse;
-    private int bloodPressure;
+    private String bloodPressure;
 
-    public VitalSigns(float temp, int pulse, int bloodPressure) {
+    public VitalSigns(String temp, int pulse, String bloodPressure) {
         this.temp = temp;
         this.pulse = pulse;
         this.bloodPressure = bloodPressure;
     }
 
-    public float getTemp() {
+    public String getTemp() {
         return temp;
     }
 
-    public void setTemp(float temp) {
+    public void setTemp(String temp) {
         this.temp = temp;
     }
 
@@ -35,11 +35,11 @@ public class VitalSigns {
         this.pulse = pulse;
     }
 
-    public int getBloodPressure() {
+    public String getBloodPressure() {
         return bloodPressure;
     }
 
-    public void setBloodPressure(int bloodPressure) {
+    public void setBloodPressure(String bloodPressure) {
         this.bloodPressure = bloodPressure;
     }
     

@@ -12,17 +12,24 @@ import java.util.ArrayList;
  */
 public class Community {
     private String communityName;
-    private String communityId;
-    private ArrayList<House> house;
-    private ArrayList<Hospital> hospital;
+    private String cityName;
 
-    public Community(String communityName, String communityId, ArrayList<House> house, ArrayList<Hospital> hospital) {
+    public Community(String communityName, String cityName) {
         this.communityName = communityName;
-        this.communityId = communityId;
-        this.house = house;
-        this.hospital = hospital;
+        this.cityName = cityName;
     }
 
+    
+
+    public String getCityName() {
+        return cityName;
+    }
+
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
+    }
+
+    
     public String getCommunityName() {
         return communityName;
     }
@@ -31,6 +38,7 @@ public class Community {
         this.communityName = communityName;
     }
 
+    /*
     public String getCommunityId() {
         return communityId;
     }
@@ -38,22 +46,8 @@ public class Community {
     public void setCommunityId(String communityId) {
         this.communityId = communityId;
     }
+    */
 
-    public ArrayList<House> getHouse() {
-        return house;
-    }
-
-    public void setHouse(ArrayList<House> house) {
-        this.house = house;
-    }
-
-    public ArrayList<Hospital> getHospital() {
-        return hospital;
-    }
-
-    public void setHospital(ArrayList<Hospital> hospital) {
-        this.hospital = hospital;
-    }
     
     
     

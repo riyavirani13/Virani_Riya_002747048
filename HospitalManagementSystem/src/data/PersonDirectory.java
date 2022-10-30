@@ -33,8 +33,19 @@ public class PersonDirectory {
                 return p.getRole();
             }
         }
-        return null;
+        return "Null";
     }
+    
+    public String getCommunityNameOfSelectedPatient(String username, String password){
+        for(Person p:this.personList){
+            if(p.getUsername().equals(username) && p.getPassword().equals(password)){
+                return p.getResidence().getCommunityName();
+            }
+        }
+        return "Null";
+    }
+    
+    
     
     public ArrayList<Person> getPersonList() {
         return personList;

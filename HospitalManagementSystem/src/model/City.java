@@ -4,7 +4,6 @@
  */
 package model;
 
-import data.HospitalDirectory;
 import java.util.ArrayList;
 
 /**
@@ -14,12 +13,16 @@ import java.util.ArrayList;
 public class City {
     private String cityName;
     int cityId;
-    private ArrayList<Community> community;
+    private ArrayList<Community> communityList;
 
-    public City(String cityName, int cityId, ArrayList<Community> community) {
+    public City(String cityName, int cityId, ArrayList<Community> communityList) {
         this.cityName = cityName;
         this.cityId = cityId;
-        this.community = community;
+        this.communityList = communityList;
+    }
+
+    public City() {
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     public String getCityName() {
@@ -38,12 +41,12 @@ public class City {
         this.cityId = cityId;
     }
 
-    public ArrayList<Community> getCommunity() {
-        return community;
+    public ArrayList<Community> getCommunityList() {
+        return communityList;
     }
 
-    public void setCommunity(ArrayList<Community> community) {
-        this.community = community;
+    public void setCommunityList(ArrayList<Community> communityList) {
+        this.communityList = communityList;
     }
 
     

@@ -12,15 +12,17 @@ public class House {
     private String address;
     private String aptNo;
     private String state;
-    private int communityId;
+    private String communityName;
+    //private int communityId;
     private String cityName;
     private String zipcode;
 
-    public House(String address, String aptNo, String state, int communityId, String cityName, String zipcode) {
+    public House(String address, String aptNo, String state, String communityName, String cityName, String zipcode) {
         this.address = address;
         this.aptNo = aptNo;
         this.state = state;
-        this.communityId = communityId;
+        this.communityName = communityName;
+        //this.communityId = communityId;
         this.cityName = cityName;
         this.zipcode = zipcode;
     }
@@ -49,6 +51,7 @@ public class House {
         this.state = state;
     }
 
+    /*
     public int getCommunityId() {
         return communityId;
     }
@@ -56,7 +59,9 @@ public class House {
     public void setCommunityId(int communityId) {
         this.communityId = communityId;
     }
+    */
 
+    
     public String getCityName() {
         return cityName;
     }
@@ -71,6 +76,14 @@ public class House {
 
     public void setZipcode(String zipcode) {
         this.zipcode = zipcode;
+    }
+
+    public String getCommunityName() {
+        return communityName;
+    }
+
+    public void setCommunityName(String communityName) {
+        this.communityName = communityName;
     }
    
     

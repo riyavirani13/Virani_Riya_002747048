@@ -30,6 +30,25 @@ public class DoctorDirectory {
         this.doctorList = doctor;
     }
 
+    public void addDoctor(Doctor d) {
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        doctorList.add(d);
+    }
+
+    public void removeDoctor(Doctor d) {
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        doctorList.remove(d);
+    }
+
+    
+    public Doctor getCurrentDoctor(String username, String password){
+        for(Doctor d:this.doctorList){
+            if(d.getUsername().equals(username) && d.getPassword().equals(password)){
+                return d;
+            }
+        }
+        return null;
+    }
     
     
 }
