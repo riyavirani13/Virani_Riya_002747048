@@ -414,6 +414,12 @@ public class MainJFrame extends javax.swing.JFrame {
         jScrollPane8 = new javax.swing.JScrollPane();
         tblListOfCommunities = new javax.swing.JTable();
         SysAdminDeleteCommunity = new javax.swing.JButton();
+        SysAdminViewCommunity = new javax.swing.JButton();
+        jLabel64 = new javax.swing.JLabel();
+        jLabel65 = new javax.swing.JLabel();
+        txtSysAdminViewCommName = new javax.swing.JTextField();
+        txtSysAdminViewCityName = new javax.swing.JTextField();
+        btnSysAdminUpdateCommunity = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(181, 212, 243));
@@ -528,7 +534,7 @@ public class MainJFrame extends javax.swing.JFrame {
                     .addGroup(mainRightPanelLayout.createSequentialGroup()
                         .addGap(197, 197, 197)
                         .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(1386, Short.MAX_VALUE))
+                .addContainerGap(1392, Short.MAX_VALUE))
         );
         mainRightPanelLayout.setVerticalGroup(
             mainRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -641,7 +647,7 @@ public class MainJFrame extends javax.swing.JFrame {
                                 .addComponent(txtFullName)
                                 .addComponent(txtZipcode)))
                         .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addContainerGap(1319, Short.MAX_VALUE))
+                .addContainerGap(1325, Short.MAX_VALUE))
         );
         PatientSignUpJPanelLayout.setVerticalGroup(
             PatientSignUpJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -777,7 +783,7 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(WelcomePatientJPanelLayout.createSequentialGroup()
                 .addGap(109, 109, 109)
                 .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1164, Short.MAX_VALUE))
+                .addContainerGap(1170, Short.MAX_VALUE))
         );
         WelcomePatientJPanelLayout.setVerticalGroup(
             WelcomePatientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -863,7 +869,7 @@ public class MainJFrame extends javax.swing.JFrame {
                     .addComponent(jLabel21)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(1223, Short.MAX_VALUE))
+                .addContainerGap(1229, Short.MAX_VALUE))
         );
         PatientSearchHospJPanel1Layout.setVerticalGroup(
             PatientSearchHospJPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -912,7 +918,7 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(PatientViewEncounterHistoryJPanelLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1080, Short.MAX_VALUE))
+                .addContainerGap(1086, Short.MAX_VALUE))
         );
         PatientViewEncounterHistoryJPanelLayout.setVerticalGroup(
             PatientViewEncounterHistoryJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -984,7 +990,7 @@ public class MainJFrame extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtTemperature, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jLabel17)))
-                .addContainerGap(1074, Short.MAX_VALUE))
+                .addContainerGap(1080, Short.MAX_VALUE))
         );
 
         PatientAddVitalsJPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel18, jLabel19, jLabel23, jLabel24});
@@ -1025,7 +1031,7 @@ public class MainJFrame extends javax.swing.JFrame {
             PatientMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PatientMainJPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(splitPane)
+                .addComponent(splitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1796, Short.MAX_VALUE)
                 .addContainerGap())
         );
         PatientMainJPanelLayout.setVerticalGroup(
@@ -1087,7 +1093,7 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(WelcomeDoctorJPanelLayout.createSequentialGroup()
                 .addGap(51, 51, 51)
                 .addComponent(jLabel25)
-                .addContainerGap(1300, Short.MAX_VALUE))
+                .addContainerGap(1306, Short.MAX_VALUE))
         );
         WelcomeDoctorJPanelLayout.setVerticalGroup(
             WelcomeDoctorJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1176,7 +1182,7 @@ public class MainJFrame extends javax.swing.JFrame {
                                 .addComponent(lblTemperature, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(lblPulse, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
                                 .addComponent(lblBloodPressure, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)))))
-                .addContainerGap(1077, Short.MAX_VALUE))
+                .addContainerGap(1083, Short.MAX_VALUE))
         );
 
         DiagnosePatientJPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel27, jLabel28, jLabel29, jLabel30});
@@ -1223,7 +1229,7 @@ public class MainJFrame extends javax.swing.JFrame {
             DoctorMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DoctorMainJPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(doctorSplitPane)
+                .addComponent(doctorSplitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1796, Short.MAX_VALUE)
                 .addContainerGap())
         );
         DoctorMainJPanelLayout.setVerticalGroup(
@@ -1297,7 +1303,7 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(WelcomeHospAdminJPanelLayout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addComponent(jLabel31)
-                .addContainerGap(1285, Short.MAX_VALUE))
+                .addContainerGap(1291, Short.MAX_VALUE))
         );
         WelcomeHospAdminJPanelLayout.setVerticalGroup(
             WelcomeHospAdminJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1351,7 +1357,7 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(WelcomeHospAdminManageDoctorJPanelLayout.createSequentialGroup()
                 .addGap(143, 143, 143)
                 .addComponent(jLabel45)
-                .addContainerGap(957, Short.MAX_VALUE))
+                .addContainerGap(963, Short.MAX_VALUE))
         );
         WelcomeHospAdminManageDoctorJPanelLayout.setVerticalGroup(
             WelcomeHospAdminManageDoctorJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1457,7 +1463,7 @@ public class MainJFrame extends javax.swing.JFrame {
                                 .addComponent(txtDoctorZipcode)
                                 .addComponent(txtDoctorHospId, javax.swing.GroupLayout.Alignment.LEADING)))
                         .addComponent(jLabel43, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addContainerGap(779, Short.MAX_VALUE))
+                .addContainerGap(785, Short.MAX_VALUE))
         );
         HospAdminAddDoctorJPanelLayout.setVerticalGroup(
             HospAdminAddDoctorJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1531,7 +1537,7 @@ public class MainJFrame extends javax.swing.JFrame {
             HospAdminManageDoctorJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HospAdminManageDoctorJPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(hospAdminManageDoctorSplitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1552, Short.MAX_VALUE))
+                .addComponent(hospAdminManageDoctorSplitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1558, Short.MAX_VALUE))
         );
         HospAdminManageDoctorJPanelLayout.setVerticalGroup(
             HospAdminManageDoctorJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1588,7 +1594,7 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(WelcomeHospAdminManagePatientJPanelLayout.createSequentialGroup()
                 .addGap(143, 143, 143)
                 .addComponent(jLabel47)
-                .addContainerGap(957, Short.MAX_VALUE))
+                .addContainerGap(963, Short.MAX_VALUE))
         );
         WelcomeHospAdminManagePatientJPanelLayout.setVerticalGroup(
             WelcomeHospAdminManagePatientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1684,7 +1690,7 @@ public class MainJFrame extends javax.swing.JFrame {
                                 .addComponent(txtPatientFullName)
                                 .addComponent(txtPatientZipcode)))
                         .addComponent(jLabel59, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addContainerGap(779, Short.MAX_VALUE))
+                .addContainerGap(785, Short.MAX_VALUE))
         );
         HospAdminAddPatientJPanelLayout.setVerticalGroup(
             HospAdminAddPatientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1771,7 +1777,7 @@ public class MainJFrame extends javax.swing.JFrame {
             HospAdminMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HospAdminMainJPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(hospAdminSplitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1790, Short.MAX_VALUE)
+                .addComponent(hospAdminSplitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1796, Short.MAX_VALUE)
                 .addContainerGap())
         );
         HospAdminMainJPanelLayout.setVerticalGroup(
@@ -1884,7 +1890,7 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(WelcomeCommAdminManageCommunityJPanelLayout.createSequentialGroup()
                 .addGap(143, 143, 143)
                 .addComponent(jLabel77)
-                .addContainerGap(957, Short.MAX_VALUE))
+                .addContainerGap(963, Short.MAX_VALUE))
         );
         WelcomeCommAdminManageCommunityJPanelLayout.setVerticalGroup(
             WelcomeCommAdminManageCommunityJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1930,7 +1936,7 @@ public class MainJFrame extends javax.swing.JFrame {
                                 .addComponent(txtCommAdminCityName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
                                 .addComponent(txtCommAdminCommName1)))
                         .addComponent(jLabel89, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addContainerGap(824, Short.MAX_VALUE))
+                .addContainerGap(830, Short.MAX_VALUE))
         );
         CommAdminAddCommunityJPanelLayout.setVerticalGroup(
             CommAdminAddCommunityJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1981,7 +1987,7 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(WelcomeCommAdminJPanelLayout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addComponent(jLabel61)
-                .addContainerGap(1285, Short.MAX_VALUE))
+                .addContainerGap(1291, Short.MAX_VALUE))
         );
         WelcomeCommAdminJPanelLayout.setVerticalGroup(
             WelcomeCommAdminJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2041,7 +2047,7 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(WelcomeCommAdminManageHospitalsJPanelLayout.createSequentialGroup()
                 .addGap(143, 143, 143)
                 .addComponent(jLabel91)
-                .addContainerGap(957, Short.MAX_VALUE))
+                .addContainerGap(963, Short.MAX_VALUE))
         );
         WelcomeCommAdminManageHospitalsJPanelLayout.setVerticalGroup(
             WelcomeCommAdminManageHospitalsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2091,7 +2097,7 @@ public class MainJFrame extends javax.swing.JFrame {
                                 .addComponent(txtCommAdminHospName, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(txtCommAdminHospID)))
                         .addComponent(jLabel103, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addContainerGap(824, Short.MAX_VALUE))
+                .addContainerGap(830, Short.MAX_VALUE))
         );
         CommAdminAddHospitalJPanelLayout.setVerticalGroup(
             CommAdminAddHospitalJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2142,7 +2148,7 @@ public class MainJFrame extends javax.swing.JFrame {
             CommAdminMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CommAdminMainJPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(commAdminSplitPane)
+                .addComponent(commAdminSplitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1796, Short.MAX_VALUE)
                 .addContainerGap())
         );
         CommAdminMainJPanelLayout.setVerticalGroup(
@@ -2211,7 +2217,7 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
-        SysAdminDeleteCommunityNav.setText("Delete Community");
+        SysAdminDeleteCommunityNav.setText("Update/Delete Community");
         SysAdminDeleteCommunityNav.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SysAdminDeleteCommunityNavActionPerformed(evt);
@@ -2223,17 +2229,22 @@ public class MainJFrame extends javax.swing.JFrame {
         sysAdminNavPanelLayout.setHorizontalGroup(
             sysAdminNavPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(sysAdminNavPanelLayout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addGroup(sysAdminNavPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnSysAdminCreateCommunity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSysAdminCreateHospital, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSysAdminCreateDoctor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSysAdminCreatePatient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSysAdminDeletePatientNav, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSysAdminDeleteDoctorNav, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(SysAdminDeleteHospitalNav, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(SysAdminDeleteCommunityNav, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addGroup(sysAdminNavPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(sysAdminNavPanelLayout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addGroup(sysAdminNavPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnSysAdminCreateCommunity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnSysAdminCreateHospital, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnSysAdminCreateDoctor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnSysAdminCreatePatient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(sysAdminNavPanelLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(sysAdminNavPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnSysAdminDeletePatientNav, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnSysAdminDeleteDoctorNav, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(SysAdminDeleteHospitalNav, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(SysAdminDeleteCommunityNav))))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         sysAdminNavPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnSysAdminCreateCommunity, btnSysAdminCreateDoctor, btnSysAdminCreateHospital, btnSysAdminCreatePatient});
@@ -2277,7 +2288,7 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(WelcomeSysAdminJPanelLayout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addComponent(jLabel62)
-                .addContainerGap(1285, Short.MAX_VALUE))
+                .addContainerGap(1291, Short.MAX_VALUE))
         );
         WelcomeSysAdminJPanelLayout.setVerticalGroup(
             WelcomeSysAdminJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2340,7 +2351,7 @@ public class MainJFrame extends javax.swing.JFrame {
                         .addComponent(jLabel63, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtSysAdminSearchPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(1070, Short.MAX_VALUE))
+                .addContainerGap(1076, Short.MAX_VALUE))
         );
         SysAdminDeletePatientJPanelLayout.setVerticalGroup(
             SysAdminDeletePatientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2396,7 +2407,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGroup(SysAdminDeleteDoctorJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnSysAdminDeleteDoctor)
                     .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(1070, Short.MAX_VALUE))
+                .addContainerGap(1076, Short.MAX_VALUE))
         );
         SysAdminDeleteDoctorJPanelLayout.setVerticalGroup(
             SysAdminDeleteDoctorJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2449,7 +2460,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGroup(SysAdminDeleteHospitalJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(SysAdminDeleteHospital)
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(1084, Short.MAX_VALUE))
+                .addContainerGap(1090, Short.MAX_VALUE))
         );
         SysAdminDeleteHospitalJPanelLayout.setVerticalGroup(
             SysAdminDeleteHospitalJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2493,6 +2504,30 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        SysAdminViewCommunity.setText("View");
+        SysAdminViewCommunity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SysAdminViewCommunityActionPerformed(evt);
+            }
+        });
+
+        jLabel64.setText("Community Name");
+
+        jLabel65.setText("City Name");
+
+        txtSysAdminViewCommName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSysAdminViewCommNameActionPerformed(evt);
+            }
+        });
+
+        btnSysAdminUpdateCommunity.setText("Update");
+        btnSysAdminUpdateCommunity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSysAdminUpdateCommunityActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout SysAdminDeleteCommunityJPanelLayout = new javax.swing.GroupLayout(SysAdminDeleteCommunityJPanel);
         SysAdminDeleteCommunityJPanel.setLayout(SysAdminDeleteCommunityJPanelLayout);
         SysAdminDeleteCommunityJPanelLayout.setHorizontalGroup(
@@ -2500,9 +2535,25 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(SysAdminDeleteCommunityJPanelLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addGroup(SysAdminDeleteCommunityJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(SysAdminDeleteCommunity)
-                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(1084, Short.MAX_VALUE))
+                    .addGroup(SysAdminDeleteCommunityJPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel65)
+                        .addGap(250, 250, 250)
+                        .addComponent(txtSysAdminViewCityName))
+                    .addGroup(SysAdminDeleteCommunityJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(SysAdminDeleteCommunityJPanelLayout.createSequentialGroup()
+                            .addComponent(SysAdminDeleteCommunity)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(SysAdminViewCommunity))
+                        .addGroup(SysAdminDeleteCommunityJPanelLayout.createSequentialGroup()
+                            .addComponent(jLabel64)
+                            .addGap(209, 209, 209)
+                            .addComponent(txtSysAdminViewCommName))))
+                .addContainerGap(1090, Short.MAX_VALUE))
+            .addGroup(SysAdminDeleteCommunityJPanelLayout.createSequentialGroup()
+                .addGap(214, 214, 214)
+                .addComponent(btnSysAdminUpdateCommunity)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         SysAdminDeleteCommunityJPanelLayout.setVerticalGroup(
             SysAdminDeleteCommunityJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2510,8 +2561,20 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(SysAdminDeleteCommunity)
-                .addContainerGap(1063, Short.MAX_VALUE))
+                .addGroup(SysAdminDeleteCommunityJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(SysAdminDeleteCommunity)
+                    .addComponent(SysAdminViewCommunity))
+                .addGap(18, 18, 18)
+                .addGroup(SysAdminDeleteCommunityJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel64)
+                    .addComponent(txtSysAdminViewCommName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(SysAdminDeleteCommunityJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel65)
+                    .addComponent(txtSysAdminViewCityName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btnSysAdminUpdateCommunity)
+                .addContainerGap(949, Short.MAX_VALUE))
         );
 
         cardSysAdmin.add(SysAdminDeleteCommunityJPanel, "card6");
@@ -2545,7 +2608,7 @@ public class MainJFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(mainSplitFrame)
+                .addComponent(mainSplitFrame, javax.swing.GroupLayout.DEFAULT_SIZE, 2046, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -3432,6 +3495,56 @@ public class MainJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSysAdminSearchPatientActionPerformed
 
+    private void SysAdminViewCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SysAdminViewCommunityActionPerformed
+        // TODO add your handling code here:
+        selectedRowIndex5 = tblListOfCommunities.getSelectedRow();
+        
+        if (selectedRowIndex5<0) {
+            JOptionPane.showMessageDialog(this, "Please select a row to view!");
+            return;
+        }
+        if(tblListOfCommunities.getRowCount()==0){
+            JOptionPane.showMessageDialog(this, "No records in the table");
+            return;
+        }
+        
+        DefaultTableModel model = (DefaultTableModel) tblListOfCommunities.getModel();
+        Community selectedCommunity = (Community) model.getValueAt(selectedRowIndex5, 1);
+        
+        txtSysAdminViewCommName.setText(selectedCommunity.getCommunityName());
+        txtSysAdminViewCityName.setText(String.valueOf(selectedCommunity.getCityName()));
+        
+        
+    }//GEN-LAST:event_SysAdminViewCommunityActionPerformed
+
+    private void txtSysAdminViewCommNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSysAdminViewCommNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSysAdminViewCommNameActionPerformed
+
+    private void btnSysAdminUpdateCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSysAdminUpdateCommunityActionPerformed
+        // TODO add your handling code here:
+        if (tblListOfCommunities.getSelectedRowCount()==1){
+            String commName = txtSysAdminViewCommName.getText();
+            String cityName = txtSysAdminViewCityName.getText();
+            
+            tblListOfCommunities.setValueAt(commName, selectedRowIndex, 0);
+            tblListOfCommunities.setValueAt(cityName, selectedRowIndex, 1);
+            
+            Community selectedCommunity = (Community) tblListOfCommunities.getValueAt(selectedRowIndex5, 1);
+
+            selectedCommunity.setCommunityName(commName);
+            selectedCommunity.setCityName(cityName);
+            
+            JOptionPane.showMessageDialog(this, "Community details updated successfully!");
+            
+            txtSysAdminViewCommName.setText("");
+            txtSysAdminViewCityName.setText("");
+            
+            populateListOfComminitiesTable();
+            
+        }
+    }//GEN-LAST:event_btnSysAdminUpdateCommunityActionPerformed
+
     private void searchInTable(){
         DefaultTableModel model = (DefaultTableModel) tblListOfPatients.getModel();
         TableRowSorter sorter = new TableRowSorter<>(model);
@@ -3526,6 +3639,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel SysAdminDeleteHospitalJPanel;
     private javax.swing.JButton SysAdminDeleteHospitalNav;
     private javax.swing.JPanel SysAdminDeletePatientJPanel;
+    private javax.swing.JButton SysAdminViewCommunity;
     private javax.swing.JPanel SystemAdminMainJPanel;
     private javax.swing.JPanel WelcomeCommAdminJPanel;
     private javax.swing.JPanel WelcomeCommAdminManageCommunityJPanel;
@@ -3568,6 +3682,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnSysAdminDeleteDoctorNav;
     private javax.swing.JButton btnSysAdminDeletePatient;
     private javax.swing.JButton btnSysAdminDeletePatientNav;
+    private javax.swing.JButton btnSysAdminUpdateCommunity;
     private javax.swing.JButton btnViewRecentVitals;
     private javax.swing.JPanel card;
     private javax.swing.JPanel cardCommAdmin;
@@ -3660,6 +3775,8 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel63;
+    private javax.swing.JLabel jLabel64;
+    private javax.swing.JLabel jLabel65;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel77;
     private javax.swing.JLabel jLabel78;
@@ -3736,6 +3853,8 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField txtState;
     private javax.swing.JTextField txtStreetName;
     private javax.swing.JTextField txtSysAdminSearchPatient;
+    private javax.swing.JTextField txtSysAdminViewCityName;
+    private javax.swing.JTextField txtSysAdminViewCommName;
     private javax.swing.JTextField txtTemperature;
     private javax.swing.JTextField txtUsername;
     private javax.swing.JTextField txtUsernamePatient;
