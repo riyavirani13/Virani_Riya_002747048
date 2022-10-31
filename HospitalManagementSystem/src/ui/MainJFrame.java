@@ -13,7 +13,11 @@ import java.awt.CardLayout;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 import model.City;
 import model.Community;
 import model.Doctor;
@@ -54,6 +58,7 @@ public class MainJFrame extends javax.swing.JFrame {
     City c1;
     public MainJFrame() {
         initComponents();
+        searchInTable();
         patientCount = 1;
         doctorCount = 1;
         personDirectory = new PersonDirectory();
@@ -67,6 +72,9 @@ public class MainJFrame extends javax.swing.JFrame {
         c1.setCityId(1);
         c1.setCityName("Boston");
         c1.setCommunityList(new ArrayList<Community>());
+        c1.getCommunityList().add(new Community("Allston", "Boston"));
+        c1.getCommunityList().add(new Community("Back Bay", "Boston"));
+        c1.getCommunityList().add(new Community("Beacon Hill", "Boston"));
         Person sysAdmin = new Person("Riya Kesarwani", new House("Boylston St", "31", "MA", "Back Bay", "Boston", "02199"), "Female", "10/13/1998", 24, "riya13","123","System Admin");
         personDirectory.addPerson(sysAdmin);
         Person commAdmin = new Person("Shashank Kesarwani", new House("Park Dr", "7", "MA", "Back bay", "Boston", "02199"), "Male", "08/24/1997", 25, "shash24","123","Community Admin");
@@ -392,6 +400,8 @@ public class MainJFrame extends javax.swing.JFrame {
         jScrollPane6 = new javax.swing.JScrollPane();
         tblListOfPatients = new javax.swing.JTable();
         btnSysAdminDeletePatient = new javax.swing.JButton();
+        txtSysAdminSearchPatient = new javax.swing.JTextField();
+        jLabel63 = new javax.swing.JLabel();
         SysAdminDeleteDoctorJPanel = new javax.swing.JPanel();
         jScrollPane7 = new javax.swing.JScrollPane();
         tblListOfDoctors = new javax.swing.JTable();
@@ -518,7 +528,7 @@ public class MainJFrame extends javax.swing.JFrame {
                     .addGroup(mainRightPanelLayout.createSequentialGroup()
                         .addGap(197, 197, 197)
                         .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(1352, Short.MAX_VALUE))
+                .addContainerGap(1386, Short.MAX_VALUE))
         );
         mainRightPanelLayout.setVerticalGroup(
             mainRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -631,7 +641,7 @@ public class MainJFrame extends javax.swing.JFrame {
                                 .addComponent(txtFullName)
                                 .addComponent(txtZipcode)))
                         .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addContainerGap(1285, Short.MAX_VALUE))
+                .addContainerGap(1319, Short.MAX_VALUE))
         );
         PatientSignUpJPanelLayout.setVerticalGroup(
             PatientSignUpJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -767,7 +777,7 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(WelcomePatientJPanelLayout.createSequentialGroup()
                 .addGap(109, 109, 109)
                 .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1148, Short.MAX_VALUE))
+                .addContainerGap(1164, Short.MAX_VALUE))
         );
         WelcomePatientJPanelLayout.setVerticalGroup(
             WelcomePatientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -853,7 +863,7 @@ public class MainJFrame extends javax.swing.JFrame {
                     .addComponent(jLabel21)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(1181, Short.MAX_VALUE))
+                .addContainerGap(1223, Short.MAX_VALUE))
         );
         PatientSearchHospJPanel1Layout.setVerticalGroup(
             PatientSearchHospJPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -902,7 +912,7 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(PatientViewEncounterHistoryJPanelLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1065, Short.MAX_VALUE))
+                .addContainerGap(1080, Short.MAX_VALUE))
         );
         PatientViewEncounterHistoryJPanelLayout.setVerticalGroup(
             PatientViewEncounterHistoryJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -974,7 +984,7 @@ public class MainJFrame extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtTemperature, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jLabel17)))
-                .addContainerGap(1058, Short.MAX_VALUE))
+                .addContainerGap(1074, Short.MAX_VALUE))
         );
 
         PatientAddVitalsJPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel18, jLabel19, jLabel23, jLabel24});
@@ -1077,7 +1087,7 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(WelcomeDoctorJPanelLayout.createSequentialGroup()
                 .addGap(51, 51, 51)
                 .addComponent(jLabel25)
-                .addContainerGap(1284, Short.MAX_VALUE))
+                .addContainerGap(1300, Short.MAX_VALUE))
         );
         WelcomeDoctorJPanelLayout.setVerticalGroup(
             WelcomeDoctorJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1166,7 +1176,7 @@ public class MainJFrame extends javax.swing.JFrame {
                                 .addComponent(lblTemperature, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(lblPulse, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
                                 .addComponent(lblBloodPressure, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)))))
-                .addContainerGap(1062, Short.MAX_VALUE))
+                .addContainerGap(1077, Short.MAX_VALUE))
         );
 
         DiagnosePatientJPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel27, jLabel28, jLabel29, jLabel30});
@@ -1287,7 +1297,7 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(WelcomeHospAdminJPanelLayout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addComponent(jLabel31)
-                .addContainerGap(1269, Short.MAX_VALUE))
+                .addContainerGap(1285, Short.MAX_VALUE))
         );
         WelcomeHospAdminJPanelLayout.setVerticalGroup(
             WelcomeHospAdminJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1341,7 +1351,7 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(WelcomeHospAdminManageDoctorJPanelLayout.createSequentialGroup()
                 .addGap(143, 143, 143)
                 .addComponent(jLabel45)
-                .addContainerGap(953, Short.MAX_VALUE))
+                .addContainerGap(957, Short.MAX_VALUE))
         );
         WelcomeHospAdminManageDoctorJPanelLayout.setVerticalGroup(
             WelcomeHospAdminManageDoctorJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1447,7 +1457,7 @@ public class MainJFrame extends javax.swing.JFrame {
                                 .addComponent(txtDoctorZipcode)
                                 .addComponent(txtDoctorHospId, javax.swing.GroupLayout.Alignment.LEADING)))
                         .addComponent(jLabel43, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addContainerGap(775, Short.MAX_VALUE))
+                .addContainerGap(779, Short.MAX_VALUE))
         );
         HospAdminAddDoctorJPanelLayout.setVerticalGroup(
             HospAdminAddDoctorJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1521,7 +1531,7 @@ public class MainJFrame extends javax.swing.JFrame {
             HospAdminManageDoctorJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HospAdminManageDoctorJPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(hospAdminManageDoctorSplitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1542, Short.MAX_VALUE))
+                .addComponent(hospAdminManageDoctorSplitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1552, Short.MAX_VALUE))
         );
         HospAdminManageDoctorJPanelLayout.setVerticalGroup(
             HospAdminManageDoctorJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1578,7 +1588,7 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(WelcomeHospAdminManagePatientJPanelLayout.createSequentialGroup()
                 .addGap(143, 143, 143)
                 .addComponent(jLabel47)
-                .addContainerGap(953, Short.MAX_VALUE))
+                .addContainerGap(957, Short.MAX_VALUE))
         );
         WelcomeHospAdminManagePatientJPanelLayout.setVerticalGroup(
             WelcomeHospAdminManagePatientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1674,7 +1684,7 @@ public class MainJFrame extends javax.swing.JFrame {
                                 .addComponent(txtPatientFullName)
                                 .addComponent(txtPatientZipcode)))
                         .addComponent(jLabel59, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addContainerGap(775, Short.MAX_VALUE))
+                .addContainerGap(779, Short.MAX_VALUE))
         );
         HospAdminAddPatientJPanelLayout.setVerticalGroup(
             HospAdminAddPatientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1761,7 +1771,7 @@ public class MainJFrame extends javax.swing.JFrame {
             HospAdminMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HospAdminMainJPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(hospAdminSplitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1768, Short.MAX_VALUE)
+                .addComponent(hospAdminSplitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1790, Short.MAX_VALUE)
                 .addContainerGap())
         );
         HospAdminMainJPanelLayout.setVerticalGroup(
@@ -1874,7 +1884,7 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(WelcomeCommAdminManageCommunityJPanelLayout.createSequentialGroup()
                 .addGap(143, 143, 143)
                 .addComponent(jLabel77)
-                .addContainerGap(953, Short.MAX_VALUE))
+                .addContainerGap(957, Short.MAX_VALUE))
         );
         WelcomeCommAdminManageCommunityJPanelLayout.setVerticalGroup(
             WelcomeCommAdminManageCommunityJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1920,7 +1930,7 @@ public class MainJFrame extends javax.swing.JFrame {
                                 .addComponent(txtCommAdminCityName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
                                 .addComponent(txtCommAdminCommName1)))
                         .addComponent(jLabel89, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addContainerGap(820, Short.MAX_VALUE))
+                .addContainerGap(824, Short.MAX_VALUE))
         );
         CommAdminAddCommunityJPanelLayout.setVerticalGroup(
             CommAdminAddCommunityJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1971,7 +1981,7 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(WelcomeCommAdminJPanelLayout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addComponent(jLabel61)
-                .addContainerGap(1269, Short.MAX_VALUE))
+                .addContainerGap(1285, Short.MAX_VALUE))
         );
         WelcomeCommAdminJPanelLayout.setVerticalGroup(
             WelcomeCommAdminJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2031,7 +2041,7 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(WelcomeCommAdminManageHospitalsJPanelLayout.createSequentialGroup()
                 .addGap(143, 143, 143)
                 .addComponent(jLabel91)
-                .addContainerGap(953, Short.MAX_VALUE))
+                .addContainerGap(957, Short.MAX_VALUE))
         );
         WelcomeCommAdminManageHospitalsJPanelLayout.setVerticalGroup(
             WelcomeCommAdminManageHospitalsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2081,7 +2091,7 @@ public class MainJFrame extends javax.swing.JFrame {
                                 .addComponent(txtCommAdminHospName, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(txtCommAdminHospID)))
                         .addComponent(jLabel103, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addContainerGap(820, Short.MAX_VALUE))
+                .addContainerGap(824, Short.MAX_VALUE))
         );
         CommAdminAddHospitalJPanelLayout.setVerticalGroup(
             CommAdminAddHospitalJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2267,7 +2277,7 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(WelcomeSysAdminJPanelLayout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addComponent(jLabel62)
-                .addContainerGap(1269, Short.MAX_VALUE))
+                .addContainerGap(1285, Short.MAX_VALUE))
         );
         WelcomeSysAdminJPanelLayout.setVerticalGroup(
             WelcomeSysAdminJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2308,25 +2318,42 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        txtSysAdminSearchPatient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSysAdminSearchPatientActionPerformed(evt);
+            }
+        });
+
+        jLabel63.setText("Search");
+
         javax.swing.GroupLayout SysAdminDeletePatientJPanelLayout = new javax.swing.GroupLayout(SysAdminDeletePatientJPanel);
         SysAdminDeletePatientJPanel.setLayout(SysAdminDeletePatientJPanelLayout);
         SysAdminDeletePatientJPanelLayout.setHorizontalGroup(
             SysAdminDeletePatientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SysAdminDeletePatientJPanelLayout.createSequentialGroup()
                 .addGap(41, 41, 41)
-                .addGroup(SysAdminDeletePatientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnSysAdminDeletePatient)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(1055, Short.MAX_VALUE))
+                .addGroup(SysAdminDeletePatientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(SysAdminDeletePatientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnSysAdminDeletePatient)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(SysAdminDeletePatientJPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel63, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtSysAdminSearchPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(1070, Short.MAX_VALUE))
         );
         SysAdminDeletePatientJPanelLayout.setVerticalGroup(
             SysAdminDeletePatientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SysAdminDeletePatientJPanelLayout.createSequentialGroup()
-                .addGap(68, 68, 68)
+                .addGap(32, 32, 32)
+                .addGroup(SysAdminDeletePatientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtSysAdminSearchPatient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel63))
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnSysAdminDeletePatient)
-                .addContainerGap(978, Short.MAX_VALUE))
+                .addContainerGap(985, Short.MAX_VALUE))
         );
 
         cardSysAdmin.add(SysAdminDeletePatientJPanel, "card4");
@@ -2369,7 +2396,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGroup(SysAdminDeleteDoctorJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnSysAdminDeleteDoctor)
                     .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(1063, Short.MAX_VALUE))
+                .addContainerGap(1070, Short.MAX_VALUE))
         );
         SysAdminDeleteDoctorJPanelLayout.setVerticalGroup(
             SysAdminDeleteDoctorJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2422,7 +2449,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGroup(SysAdminDeleteHospitalJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(SysAdminDeleteHospital)
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(1077, Short.MAX_VALUE))
+                .addContainerGap(1084, Short.MAX_VALUE))
         );
         SysAdminDeleteHospitalJPanelLayout.setVerticalGroup(
             SysAdminDeleteHospitalJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2475,7 +2502,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGroup(SysAdminDeleteCommunityJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(SysAdminDeleteCommunity)
                     .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(1077, Short.MAX_VALUE))
+                .addContainerGap(1084, Short.MAX_VALUE))
         );
         SysAdminDeleteCommunityJPanelLayout.setVerticalGroup(
             SysAdminDeleteCommunityJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2656,7 +2683,7 @@ public class MainJFrame extends javax.swing.JFrame {
             String zipcode = txtZipcode.getText();
             String role = "Patient";
 
-            boolean bFullName = Pattern.matches("^[A-Za-z0-9]*$", fullName);
+            boolean bFullName = Pattern.matches("^[A-Za-z0-9 ]*$", fullName);
             //boolean bUsername = personDirectory.checkDuplicateUsername(username);
             boolean bUsername = Pattern.matches("^[A-Za-z0-9]*$", username);
             boolean bAge = Pattern.matches("(01|02|03|04|05|06|07|08|09|[1-9][0-9])$", Integer.toString(age));
@@ -2821,7 +2848,7 @@ public class MainJFrame extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) tblListOfCommunities.getModel();
         model.setRowCount(0);
         
-        for(Community c : new City().getCommunityList()){
+        for(Community c : c1.getCommunityList()){
             
                 Object[] row = new Object[2];
                 row[0] = c.getCommunityName();
@@ -2961,7 +2988,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 hospId = Integer.parseInt(txtDoctorHospId.getText());
             }
             
-            boolean bFullName = Pattern.matches("^[A-Za-z0-9]*$", fullName);
+            boolean bFullName = Pattern.matches("^[A-Za-z0-9 ]*$", fullName);
             //boolean bUsername = personDirectory.checkDuplicateUsername(username);
             boolean bUsername = Pattern.matches("^[A-Za-z0-9]*$", username);
             boolean bAge = Pattern.matches("(01|02|03|04|05|06|07|08|09|[1-9][0-9])$", Integer.toString(age));
@@ -3078,7 +3105,7 @@ public class MainJFrame extends javax.swing.JFrame {
             String zipcode = txtPatientZipcode.getText();
             String role = "Patient";
 
-            boolean bFullName = Pattern.matches("^[A-Za-z0-9]*$", fullName);
+            boolean bFullName = Pattern.matches("^[A-Za-z0-9 ]*$", fullName);
             //boolean bUsername = personDirectory.checkDuplicateUsername(username);
             boolean bUsername = Pattern.matches("^[A-Za-z0-9]*$", username);
             boolean bAge = Pattern.matches("(01|02|03|04|05|06|07|08|09|[1-9][0-9])$", Integer.toString(age));
@@ -3394,13 +3421,49 @@ public class MainJFrame extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) tblListOfCommunities.getModel();        
         Community selectedCommunity = (Community) model.getValueAt(selectedRowIndex5, 1);
         
-        new City().getCommunityList().remove(selectedCommunity);
+        c1.getCommunityList().remove(selectedCommunity);
         JOptionPane.showMessageDialog(this, "Selected cimmunity's details were deleted successfully.");
         
         
         populateListOfComminitiesTable();
     }//GEN-LAST:event_SysAdminDeleteCommunityActionPerformed
 
+    private void txtSysAdminSearchPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSysAdminSearchPatientActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSysAdminSearchPatientActionPerformed
+
+    private void searchInTable(){
+        DefaultTableModel model = (DefaultTableModel) tblListOfPatients.getModel();
+        TableRowSorter sorter = new TableRowSorter<>(model);
+        tblListOfPatients.setRowSorter(sorter);
+        txtSysAdminSearchPatient.getDocument().addDocumentListener(new DocumentListener(){
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                search(txtSysAdminSearchPatient.getText()); 
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                search(txtSysAdminSearchPatient.getText());
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                search(txtSysAdminSearchPatient.getText());
+            }
+
+            private void search(String str) {
+                if (str.length() == 0) {
+                    sorter.setRowFilter(null);
+                } else {
+                    sorter.setRowFilter(RowFilter.regexFilter(str));
+                }
+            }
+            
+        });
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -3596,6 +3659,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
+    private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel77;
     private javax.swing.JLabel jLabel78;
@@ -3671,6 +3735,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField txtPulse;
     private javax.swing.JTextField txtState;
     private javax.swing.JTextField txtStreetName;
+    private javax.swing.JTextField txtSysAdminSearchPatient;
     private javax.swing.JTextField txtTemperature;
     private javax.swing.JTextField txtUsername;
     private javax.swing.JTextField txtUsernamePatient;
