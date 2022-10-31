@@ -48,7 +48,10 @@ public class Community {
     }
     */
 
-    
+    @Override
+    public String toString(){
+        return cityName;
+    }
     
     
 }

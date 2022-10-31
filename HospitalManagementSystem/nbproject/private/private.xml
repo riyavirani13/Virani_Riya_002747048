@@ -3,21 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/riyavirani/NetBeansProjects/HospitalManagementSystemm/src/model/Person.java</file>
-            <file>file:/Users/riyavirani/NetBeansProjects/HospitalManagementSystemm/src/model/Encounter.java</file>
-            <file>file:/Users/riyavirani/NetBeansProjects/HospitalManagementSystemm/src/data/PersonDirectory.java</file>
-            <file>file:/Users/riyavirani/NetBeansProjects/HospitalManagementSystemm/src/data/EncounterHistory.java</file>
-            <file>file:/Users/riyavirani/NetBeansProjects/HospitalManagementSystemm/src/data/PatientDirectory.java</file>
-            <file>file:/Users/riyavirani/NetBeansProjects/HospitalManagementSystemm/src/data/DoctorDirectory.java</file>
-            <file>file:/Users/riyavirani/NetBeansProjects/HospitalManagementSystemm/src/data/HospitalDirectory.java</file>
-            <file>file:/Users/riyavirani/NetBeansProjects/HospitalManagementSystemm/src/model/VitalSigns.java</file>
-            <file>file:/Users/riyavirani/NetBeansProjects/HospitalManagementSystemm/src/model/Hospital.java</file>
-            <file>file:/Users/riyavirani/NetBeansProjects/HospitalManagementSystemm/src/model/Patient.java</file>
-            <file>file:/Users/riyavirani/NetBeansProjects/HospitalManagementSystemm/src/model/House.java</file>
             <file>file:/Users/riyavirani/NetBeansProjects/HospitalManagementSystemm/src/ui/MainJFrame.java</file>
-            <file>file:/Users/riyavirani/NetBeansProjects/HospitalManagementSystemm/src/model/Community.java</file>
-            <file>file:/Users/riyavirani/NetBeansProjects/HospitalManagementSystemm/src/model/Doctor.java</file>
-            <file>file:/Users/riyavirani/NetBeansProjects/HospitalManagementSystemm/src/model/City.java</file>
         </group>
     </open-files>
 </project-private>

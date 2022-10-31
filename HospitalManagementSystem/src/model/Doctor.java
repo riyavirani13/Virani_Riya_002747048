@@ -49,6 +49,9 @@ public class Doctor extends Person {
     }
     */
     
-    
+    @Override
+    public String toString(){
+        return this.getFullName();
+    }
     
 }

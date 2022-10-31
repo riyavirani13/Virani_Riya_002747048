@@ -43,12 +43,11 @@ public class MainJFrame extends javax.swing.JFrame {
     CardLayout clPatient;
     CardLayout clDoctor;
     CardLayout clHospAdmin, clHospAdminManageDoctor, clHospAdminManagePatient;
-    //CardLayout ;
-    //CardLayout ;
+    CardLayout clSysAdmin;
     CardLayout clCommAdmin, clCommAdminManageHospitals, clCommAdminManageCommunity;
     int patientCount;
     int doctorCount;
-    int selectedRowIndex, selectedRowIndex1, selectedRowIndex2;
+    int selectedRowIndex, selectedRowIndex1, selectedRowIndex2, selectedRowIndex3, selectedRowIndex4, selectedRowIndex5;
     Patient currentPatient;
     Doctor currentDoctor;
     ArrayList<City> cityList;
@@ -141,6 +140,19 @@ public class MainJFrame extends javax.swing.JFrame {
         cardCommAdminManageCommunity.add(WelcomeCommAdminManageCommunityJPanel, "WelcomeCommAdminManageCommunityJPanel");
         cardCommAdminManageCommunity.add(CommAdminAddCommunityJPanel, "CommAdminAddCommunityJPanel");
         clCommAdminManageCommunity.show(cardCommAdminManageCommunity,"WelcomeCommAdminManageCommunityJPanel");
+        
+        clSysAdmin = (CardLayout) (cardSysAdmin.getLayout());
+        cardSysAdmin.add(WelcomeSysAdminJPanel, "WelcomeSysAdminJPanel");
+        cardSysAdmin.add(PatientSignUpJPanel, "patientSignUpJPanel");
+        cardSysAdmin.add(HospAdminAddDoctorJPanel, "hospAdminAddDoctorJPanel");
+        cardSysAdmin.add(CommAdminAddHospitalJPanel, "CommAdminAddHospitalJPanel");
+        cardSysAdmin.add(CommAdminAddCommunityJPanel, "CommAdminAddCommunityJPanel");
+        cardSysAdmin.add(SysAdminDeletePatientJPanel, "SysAdminDeletePatientJPanel");
+        cardSysAdmin.add(SysAdminDeleteDoctorJPanel, "SysAdminDeleteDoctorJPanel");
+        cardSysAdmin.add(SysAdminDeleteHospitalJPanel, "SysAdminDeleteHospitalJPanel");
+        cardSysAdmin.add(SysAdminDeleteCommunityJPanel, "SysAdminDeleteCommunityJPanel");
+        clSysAdmin.show(cardSysAdmin,"WelcomeSysAdminJPanel");
+        
         
         
     }
@@ -324,7 +336,6 @@ public class MainJFrame extends javax.swing.JFrame {
         ddPatientGender = new javax.swing.JComboBox<>();
         ddPatientCommName = new javax.swing.JComboBox<>();
         jLabel60 = new javax.swing.JLabel();
-        SystemAdminMainJPanel = new javax.swing.JPanel();
         CommAdminMainJPanel = new javax.swing.JPanel();
         commAdminSplitPane = new javax.swing.JSplitPane();
         commAdminNavPanel = new javax.swing.JPanel();
@@ -363,6 +374,36 @@ public class MainJFrame extends javax.swing.JFrame {
         txtCommAdminCommName = new javax.swing.JTextField();
         jLabel103 = new javax.swing.JLabel();
         btnAddHospital = new javax.swing.JButton();
+        SystemAdminMainJPanel = new javax.swing.JPanel();
+        sysAdminSplitPane = new javax.swing.JSplitPane();
+        sysAdminNavPanel = new javax.swing.JPanel();
+        btnSysAdminCreatePatient = new javax.swing.JButton();
+        btnSysAdminCreateDoctor = new javax.swing.JButton();
+        btnSysAdminCreateHospital = new javax.swing.JButton();
+        btnSysAdminCreateCommunity = new javax.swing.JButton();
+        btnSysAdminDeleteDoctorNav = new javax.swing.JButton();
+        btnSysAdminDeletePatientNav = new javax.swing.JButton();
+        SysAdminDeleteHospitalNav = new javax.swing.JButton();
+        SysAdminDeleteCommunityNav = new javax.swing.JButton();
+        cardSysAdmin = new javax.swing.JPanel();
+        WelcomeSysAdminJPanel = new javax.swing.JPanel();
+        jLabel62 = new javax.swing.JLabel();
+        SysAdminDeletePatientJPanel = new javax.swing.JPanel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        tblListOfPatients = new javax.swing.JTable();
+        btnSysAdminDeletePatient = new javax.swing.JButton();
+        SysAdminDeleteDoctorJPanel = new javax.swing.JPanel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        tblListOfDoctors = new javax.swing.JTable();
+        btnSysAdminDeleteDoctor = new javax.swing.JButton();
+        SysAdminDeleteHospitalJPanel = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tblListOfHospitals = new javax.swing.JTable();
+        SysAdminDeleteHospital = new javax.swing.JButton();
+        SysAdminDeleteCommunityJPanel = new javax.swing.JPanel();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        tblListOfCommunities = new javax.swing.JTable();
+        SysAdminDeleteCommunity = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(181, 212, 243));
@@ -1491,7 +1532,10 @@ public class MainJFrame extends javax.swing.JFrame {
 
         HospAdminManagePatientJPanel.setBackground(new java.awt.Color(181, 212, 243));
 
+        hospAdminManagePatientSplitPane.setBackground(new java.awt.Color(181, 212, 243));
         hospAdminManagePatientSplitPane.setDividerLocation(215);
+
+        hospAdminManagePatientNavPanel.setBackground(new java.awt.Color(181, 212, 243));
 
         btnRegisterPatient.setText("Register A New Patient");
         btnRegisterPatient.addActionListener(new java.awt.event.ActionListener() {
@@ -1519,7 +1563,10 @@ public class MainJFrame extends javax.swing.JFrame {
 
         hospAdminManagePatientSplitPane.setLeftComponent(hospAdminManagePatientNavPanel);
 
+        cardHospAdminManagePatient.setBackground(new java.awt.Color(181, 212, 243));
         cardHospAdminManagePatient.setLayout(new java.awt.CardLayout());
+
+        WelcomeHospAdminManagePatientJPanel.setBackground(new java.awt.Color(181, 212, 243));
 
         jLabel47.setFont(new java.awt.Font("Helvetica Neue", 1, 48)); // NOI18N
         jLabel47.setText("Welcome!");
@@ -1726,21 +1773,6 @@ public class MainJFrame extends javax.swing.JFrame {
         );
 
         card.add(HospAdminMainJPanel, "card4");
-
-        SystemAdminMainJPanel.setBackground(new java.awt.Color(181, 212, 243));
-
-        javax.swing.GroupLayout SystemAdminMainJPanelLayout = new javax.swing.GroupLayout(SystemAdminMainJPanel);
-        SystemAdminMainJPanel.setLayout(SystemAdminMainJPanelLayout);
-        SystemAdminMainJPanelLayout.setHorizontalGroup(
-            SystemAdminMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1780, Short.MAX_VALUE)
-        );
-        SystemAdminMainJPanelLayout.setVerticalGroup(
-            SystemAdminMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1246, Short.MAX_VALUE)
-        );
-
-        card.add(SystemAdminMainJPanel, "card3");
 
         CommAdminMainJPanel.setBackground(new java.awt.Color(181, 212, 243));
 
@@ -2113,6 +2145,371 @@ public class MainJFrame extends javax.swing.JFrame {
 
         card.add(CommAdminMainJPanel, "card4");
 
+        SystemAdminMainJPanel.setBackground(new java.awt.Color(181, 212, 243));
+
+        sysAdminSplitPane.setBackground(new java.awt.Color(181, 212, 243));
+        sysAdminSplitPane.setDividerLocation(215);
+
+        sysAdminNavPanel.setBackground(new java.awt.Color(181, 212, 243));
+
+        btnSysAdminCreatePatient.setText("Create Patient");
+        btnSysAdminCreatePatient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSysAdminCreatePatientActionPerformed(evt);
+            }
+        });
+
+        btnSysAdminCreateDoctor.setText("Create Doctor");
+        btnSysAdminCreateDoctor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSysAdminCreateDoctorActionPerformed(evt);
+            }
+        });
+
+        btnSysAdminCreateHospital.setText("Create Hospital");
+        btnSysAdminCreateHospital.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSysAdminCreateHospitalActionPerformed(evt);
+            }
+        });
+
+        btnSysAdminCreateCommunity.setText("Create Community");
+        btnSysAdminCreateCommunity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSysAdminCreateCommunityActionPerformed(evt);
+            }
+        });
+
+        btnSysAdminDeleteDoctorNav.setText("Delete Doctor");
+        btnSysAdminDeleteDoctorNav.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSysAdminDeleteDoctorNavActionPerformed(evt);
+            }
+        });
+
+        btnSysAdminDeletePatientNav.setText("Delete Patient");
+        btnSysAdminDeletePatientNav.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSysAdminDeletePatientNavActionPerformed(evt);
+            }
+        });
+
+        SysAdminDeleteHospitalNav.setText("Delete Hospital");
+        SysAdminDeleteHospitalNav.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SysAdminDeleteHospitalNavActionPerformed(evt);
+            }
+        });
+
+        SysAdminDeleteCommunityNav.setText("Delete Community");
+        SysAdminDeleteCommunityNav.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SysAdminDeleteCommunityNavActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout sysAdminNavPanelLayout = new javax.swing.GroupLayout(sysAdminNavPanel);
+        sysAdminNavPanel.setLayout(sysAdminNavPanelLayout);
+        sysAdminNavPanelLayout.setHorizontalGroup(
+            sysAdminNavPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(sysAdminNavPanelLayout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addGroup(sysAdminNavPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnSysAdminCreateCommunity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnSysAdminCreateHospital, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnSysAdminCreateDoctor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnSysAdminCreatePatient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnSysAdminDeletePatientNav, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnSysAdminDeleteDoctorNav, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(SysAdminDeleteHospitalNav, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(SysAdminDeleteCommunityNav, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
+        );
+
+        sysAdminNavPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnSysAdminCreateCommunity, btnSysAdminCreateDoctor, btnSysAdminCreateHospital, btnSysAdminCreatePatient});
+
+        sysAdminNavPanelLayout.setVerticalGroup(
+            sysAdminNavPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(sysAdminNavPanelLayout.createSequentialGroup()
+                .addGap(71, 71, 71)
+                .addComponent(btnSysAdminCreatePatient)
+                .addGap(18, 18, 18)
+                .addComponent(btnSysAdminCreateDoctor)
+                .addGap(18, 18, 18)
+                .addComponent(btnSysAdminCreateHospital)
+                .addGap(18, 18, 18)
+                .addComponent(btnSysAdminCreateCommunity)
+                .addGap(59, 59, 59)
+                .addComponent(btnSysAdminDeletePatientNav)
+                .addGap(18, 18, 18)
+                .addComponent(btnSysAdminDeleteDoctorNav)
+                .addGap(18, 18, 18)
+                .addComponent(SysAdminDeleteHospitalNav)
+                .addGap(18, 18, 18)
+                .addComponent(SysAdminDeleteCommunityNav)
+                .addContainerGap(812, Short.MAX_VALUE))
+        );
+
+        sysAdminSplitPane.setLeftComponent(sysAdminNavPanel);
+
+        cardSysAdmin.setBackground(new java.awt.Color(181, 212, 243));
+        cardSysAdmin.setLayout(new java.awt.CardLayout());
+
+        WelcomeSysAdminJPanel.setBackground(new java.awt.Color(181, 212, 243));
+
+        jLabel62.setFont(new java.awt.Font("Helvetica Neue", 1, 48)); // NOI18N
+        jLabel62.setText("Welcome!");
+
+        javax.swing.GroupLayout WelcomeSysAdminJPanelLayout = new javax.swing.GroupLayout(WelcomeSysAdminJPanel);
+        WelcomeSysAdminJPanel.setLayout(WelcomeSysAdminJPanelLayout);
+        WelcomeSysAdminJPanelLayout.setHorizontalGroup(
+            WelcomeSysAdminJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(WelcomeSysAdminJPanelLayout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addComponent(jLabel62)
+                .addContainerGap(1269, Short.MAX_VALUE))
+        );
+        WelcomeSysAdminJPanelLayout.setVerticalGroup(
+            WelcomeSysAdminJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(WelcomeSysAdminJPanelLayout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addComponent(jLabel62)
+                .addContainerGap(1124, Short.MAX_VALUE))
+        );
+
+        cardSysAdmin.add(WelcomeSysAdminJPanel, "card2");
+
+        tblListOfPatients.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Patient Id", "Name"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane6.setViewportView(tblListOfPatients);
+
+        btnSysAdminDeletePatient.setText("Delete");
+        btnSysAdminDeletePatient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSysAdminDeletePatientActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout SysAdminDeletePatientJPanelLayout = new javax.swing.GroupLayout(SysAdminDeletePatientJPanel);
+        SysAdminDeletePatientJPanel.setLayout(SysAdminDeletePatientJPanelLayout);
+        SysAdminDeletePatientJPanelLayout.setHorizontalGroup(
+            SysAdminDeletePatientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SysAdminDeletePatientJPanelLayout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addGroup(SysAdminDeletePatientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnSysAdminDeletePatient)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(1055, Short.MAX_VALUE))
+        );
+        SysAdminDeletePatientJPanelLayout.setVerticalGroup(
+            SysAdminDeletePatientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SysAdminDeletePatientJPanelLayout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnSysAdminDeletePatient)
+                .addContainerGap(978, Short.MAX_VALUE))
+        );
+
+        cardSysAdmin.add(SysAdminDeletePatientJPanel, "card4");
+
+        tblListOfDoctors.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Doctor Id", "Name"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane7.setViewportView(tblListOfDoctors);
+
+        btnSysAdminDeleteDoctor.setText("Delete");
+        btnSysAdminDeleteDoctor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSysAdminDeleteDoctorActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout SysAdminDeleteDoctorJPanelLayout = new javax.swing.GroupLayout(SysAdminDeleteDoctorJPanel);
+        SysAdminDeleteDoctorJPanel.setLayout(SysAdminDeleteDoctorJPanelLayout);
+        SysAdminDeleteDoctorJPanelLayout.setHorizontalGroup(
+            SysAdminDeleteDoctorJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SysAdminDeleteDoctorJPanelLayout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addGroup(SysAdminDeleteDoctorJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnSysAdminDeleteDoctor)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(1063, Short.MAX_VALUE))
+        );
+        SysAdminDeleteDoctorJPanelLayout.setVerticalGroup(
+            SysAdminDeleteDoctorJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SysAdminDeleteDoctorJPanelLayout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnSysAdminDeleteDoctor)
+                .addContainerGap(985, Short.MAX_VALUE))
+        );
+
+        cardSysAdmin.add(SysAdminDeleteDoctorJPanel, "card4");
+
+        SysAdminDeleteHospitalJPanel.setBackground(new java.awt.Color(181, 212, 243));
+
+        tblListOfHospitals.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Hospital ID", "Hospital Name", "Community Name"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane5.setViewportView(tblListOfHospitals);
+
+        SysAdminDeleteHospital.setText("Delete");
+        SysAdminDeleteHospital.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SysAdminDeleteHospitalActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout SysAdminDeleteHospitalJPanelLayout = new javax.swing.GroupLayout(SysAdminDeleteHospitalJPanel);
+        SysAdminDeleteHospitalJPanel.setLayout(SysAdminDeleteHospitalJPanelLayout);
+        SysAdminDeleteHospitalJPanelLayout.setHorizontalGroup(
+            SysAdminDeleteHospitalJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SysAdminDeleteHospitalJPanelLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(SysAdminDeleteHospitalJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(SysAdminDeleteHospital)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(1077, Short.MAX_VALUE))
+        );
+        SysAdminDeleteHospitalJPanelLayout.setVerticalGroup(
+            SysAdminDeleteHospitalJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SysAdminDeleteHospitalJPanelLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(SysAdminDeleteHospital)
+                .addContainerGap(1057, Short.MAX_VALUE))
+        );
+
+        cardSysAdmin.add(SysAdminDeleteHospitalJPanel, "card3");
+
+        SysAdminDeleteCommunityJPanel.setBackground(new java.awt.Color(181, 212, 243));
+
+        tblListOfCommunities.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Community Name", "City Name"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane8.setViewportView(tblListOfCommunities);
+
+        SysAdminDeleteCommunity.setText("Delete");
+        SysAdminDeleteCommunity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SysAdminDeleteCommunityActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout SysAdminDeleteCommunityJPanelLayout = new javax.swing.GroupLayout(SysAdminDeleteCommunityJPanel);
+        SysAdminDeleteCommunityJPanel.setLayout(SysAdminDeleteCommunityJPanelLayout);
+        SysAdminDeleteCommunityJPanelLayout.setHorizontalGroup(
+            SysAdminDeleteCommunityJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SysAdminDeleteCommunityJPanelLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(SysAdminDeleteCommunityJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(SysAdminDeleteCommunity)
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(1077, Short.MAX_VALUE))
+        );
+        SysAdminDeleteCommunityJPanelLayout.setVerticalGroup(
+            SysAdminDeleteCommunityJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SysAdminDeleteCommunityJPanelLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(SysAdminDeleteCommunity)
+                .addContainerGap(1063, Short.MAX_VALUE))
+        );
+
+        cardSysAdmin.add(SysAdminDeleteCommunityJPanel, "card6");
+
+        sysAdminSplitPane.setRightComponent(cardSysAdmin);
+
+        javax.swing.GroupLayout SystemAdminMainJPanelLayout = new javax.swing.GroupLayout(SystemAdminMainJPanel);
+        SystemAdminMainJPanel.setLayout(SystemAdminMainJPanelLayout);
+        SystemAdminMainJPanelLayout.setHorizontalGroup(
+            SystemAdminMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SystemAdminMainJPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(sysAdminSplitPane)
+                .addContainerGap())
+        );
+        SystemAdminMainJPanelLayout.setVerticalGroup(
+            SystemAdminMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SystemAdminMainJPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(sysAdminSplitPane)
+                .addContainerGap())
+        );
+
+        card.add(SystemAdminMainJPanel, "card3");
+
         mainSplitFrame.setRightComponent(card);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -2177,6 +2574,7 @@ public class MainJFrame extends javax.swing.JFrame {
             if(role.equals("System Admin")){
                 btnLogout.setVisible(true);
                 cl.show(card, "systemAdminMainJPanel");
+                clSysAdmin.show(cardSysAdmin,"WelcomeSysAdminJPanel");
             }
             else {
                 if(role.equals("Hospital Admin")){
@@ -2226,6 +2624,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignUpActionPerformed
         // TODO add your handling code here:
+        card.add(PatientSignUpJPanel, "patientSignUpJPanel");
         cl.show(card, "patientSignUpJPanel");
         btnLoginAfterSignUp.setVisible(true);
 
@@ -2377,6 +2776,60 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         }
     }
+    
+    private void populateListOfPatientsTable(){
+        DefaultTableModel model = (DefaultTableModel) tblListOfPatients.getModel();
+        model.setRowCount(0);
+        for(Patient p : patientDirectory.getPatient()){
+            
+                Object[] row = new Object[2];
+                row[0] = p.getPatientId();
+                row[1] = p;
+                model.addRow(row);
+            
+        }
+    }
+    
+    private void populateListOfDoctorsTable(){
+        DefaultTableModel model = (DefaultTableModel) tblListOfDoctors.getModel();
+        model.setRowCount(0);
+        for(Doctor d : doctorDirectory.getDoctor()){
+            
+                Object[] row = new Object[2];
+                row[0] = d.getDoctorId();
+                row[1] = d;
+                model.addRow(row);
+            
+        }
+    }
+    
+    private void populateListOfHospitalsTable(){
+        DefaultTableModel model = (DefaultTableModel) tblListOfHospitals.getModel();
+        model.setRowCount(0);
+        for(Hospital h : hospitalDirectory.getHospital()){
+            
+                Object[] row = new Object[3];
+                row[0] = h.getHospitalId();
+                row[1] = h;
+                row[2] = h.getCommunityName();
+                model.addRow(row);
+            
+        }
+    }
+    
+    private void populateListOfComminitiesTable(){
+        DefaultTableModel model = (DefaultTableModel) tblListOfCommunities.getModel();
+        model.setRowCount(0);
+        
+        for(Community c : new City().getCommunityList()){
+            
+                Object[] row = new Object[2];
+                row[0] = c.getCommunityName();
+                row[1] = c;
+                model.addRow(row);
+        }
+    }
+    
     private void btnSearchHospActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchHospActionPerformed
         // TODO add your handling code here:
         clPatient.show(cardPatient, "patientSearchHospJPanel1");
@@ -2584,6 +3037,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnRegisterDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterDoctorActionPerformed
         // TODO add your handling code here:
+        cardHospAdminManageDoctor.add(HospAdminAddDoctorJPanel, "hospAdminAddDoctorJPanel");
         clHospAdminManageDoctor.show(cardHospAdminManageDoctor,"hospAdminAddDoctorJPanel");
     }//GEN-LAST:event_btnRegisterDoctorActionPerformed
 
@@ -2761,6 +3215,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnRegisterCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterCommunityActionPerformed
         // TODO add your handling code here:
+        cardCommAdminManageCommunity.add(CommAdminAddCommunityJPanel,"CommAdminAddCommunityJPanel");
         clCommAdminManageCommunity.show(cardCommAdminManageCommunity,"CommAdminAddCommunityJPanel");
         
     }//GEN-LAST:event_btnRegisterCommunityActionPerformed
@@ -2789,6 +3244,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnRegisterHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterHospitalActionPerformed
         // TODO add your handling code here:
+        cardCommAdminManageHospitals.add(CommAdminAddHospitalJPanel, "CommAdminAddHospitalJPanel");
         clCommAdminManageHospitals.show(cardCommAdminManageHospitals,"CommAdminAddHospitalJPanel");
     }//GEN-LAST:event_btnRegisterHospitalActionPerformed
 
@@ -2820,6 +3276,130 @@ public class MainJFrame extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_ddCommNameActionPerformed
+
+    private void btnSysAdminCreatePatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSysAdminCreatePatientActionPerformed
+        // TODO add your handling code here:
+        clSysAdmin.show(cardSysAdmin,"patientSignUpJPanel");
+        btnLoginAfterSignUp.setVisible(true);
+    }//GEN-LAST:event_btnSysAdminCreatePatientActionPerformed
+
+    private void btnSysAdminCreateDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSysAdminCreateDoctorActionPerformed
+        // TODO add your handling code here:
+        btnLoginAfterSignUp.setVisible(false);
+        clSysAdmin.show(cardSysAdmin,"hospAdminAddDoctorJPanel");
+    }//GEN-LAST:event_btnSysAdminCreateDoctorActionPerformed
+
+    private void btnSysAdminCreateHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSysAdminCreateHospitalActionPerformed
+        // TODO add your handling code here:
+        btnLoginAfterSignUp.setVisible(false);
+        clSysAdmin.show(cardSysAdmin,"CommAdminAddHospitalJPanel");
+    }//GEN-LAST:event_btnSysAdminCreateHospitalActionPerformed
+
+    private void btnSysAdminCreateCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSysAdminCreateCommunityActionPerformed
+        // TODO add your handling code here:
+        btnLoginAfterSignUp.setVisible(false);
+        clSysAdmin.show(cardSysAdmin,"CommAdminAddCommunityJPanel");
+    }//GEN-LAST:event_btnSysAdminCreateCommunityActionPerformed
+
+    private void btnSysAdminDeletePatientNavActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSysAdminDeletePatientNavActionPerformed
+        // TODO add your handling code here:
+        clSysAdmin.show(cardSysAdmin,"SysAdminDeletePatientJPanel");
+        populateListOfPatientsTable();
+        
+    }//GEN-LAST:event_btnSysAdminDeletePatientNavActionPerformed
+
+    private void btnSysAdminDeletePatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSysAdminDeletePatientActionPerformed
+        // TODO add your handling code here:
+        
+        selectedRowIndex2 = tblListOfPatients.getSelectedRow();
+        
+        if (selectedRowIndex2<0) {
+            JOptionPane.showMessageDialog(this, "Please select a row to delete!");
+            return;
+        }
+        
+        DefaultTableModel model = (DefaultTableModel) tblListOfPatients.getModel();        
+        Patient selectedPatient = (Patient) model.getValueAt(selectedRowIndex2, 1);
+        
+        patientDirectory.removePatient(selectedPatient);
+        JOptionPane.showMessageDialog(this, "Selected patient's details were deleted successfully.");
+        
+        populateListOfPatientsTable();
+    }//GEN-LAST:event_btnSysAdminDeletePatientActionPerformed
+
+    private void btnSysAdminDeleteDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSysAdminDeleteDoctorActionPerformed
+        // TODO add your handling code here:
+        selectedRowIndex3 = tblListOfDoctors.getSelectedRow();
+        
+        if (selectedRowIndex3<0) {
+            JOptionPane.showMessageDialog(this, "Please select a row to delete!");
+            return;
+        }
+        
+        DefaultTableModel model = (DefaultTableModel) tblListOfDoctors.getModel();        
+        Doctor selectedDoctor = (Doctor) model.getValueAt(selectedRowIndex3, 1);
+        
+        doctorDirectory.removeDoctor(selectedDoctor);
+        JOptionPane.showMessageDialog(this, "Selected doctor's details were deleted successfully.");
+        
+        populateListOfDoctorsTable();
+    }//GEN-LAST:event_btnSysAdminDeleteDoctorActionPerformed
+
+    private void btnSysAdminDeleteDoctorNavActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSysAdminDeleteDoctorNavActionPerformed
+        // TODO add your handling code here:
+        clSysAdmin.show(cardSysAdmin,"SysAdminDeleteDoctorJPanel");
+        populateListOfDoctorsTable();
+    }//GEN-LAST:event_btnSysAdminDeleteDoctorNavActionPerformed
+
+    private void SysAdminDeleteHospitalNavActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SysAdminDeleteHospitalNavActionPerformed
+        // TODO add your handling code here:
+        clSysAdmin.show(cardSysAdmin,"SysAdminDeleteHospitalJPanel");
+        populateListOfHospitalsTable();
+    }//GEN-LAST:event_SysAdminDeleteHospitalNavActionPerformed
+
+    private void SysAdminDeleteCommunityNavActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SysAdminDeleteCommunityNavActionPerformed
+        // TODO add your handling code here:
+        clSysAdmin.show(cardSysAdmin,"SysAdminDeleteCommunityJPanel");
+        populateListOfComminitiesTable();
+    }//GEN-LAST:event_SysAdminDeleteCommunityNavActionPerformed
+
+    private void SysAdminDeleteHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SysAdminDeleteHospitalActionPerformed
+        // TODO add your handling code here:
+        selectedRowIndex4 = tblListOfHospitals.getSelectedRow();
+        
+        if (selectedRowIndex4<0) {
+            JOptionPane.showMessageDialog(this, "Please select a row to delete!");
+            return;
+        }
+        
+        DefaultTableModel model = (DefaultTableModel) tblListOfHospitals.getModel();        
+        Hospital selectedHospital = (Hospital) model.getValueAt(selectedRowIndex4, 1);
+        
+        hospitalDirectory.removeHospital(selectedHospital);
+        JOptionPane.showMessageDialog(this, "Selected hospital's details were deleted successfully.");
+        
+        
+        populateListOfHospitalsTable();
+    }//GEN-LAST:event_SysAdminDeleteHospitalActionPerformed
+
+    private void SysAdminDeleteCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SysAdminDeleteCommunityActionPerformed
+        // TODO add your handling code here:
+        selectedRowIndex5 = tblListOfCommunities.getSelectedRow();
+        
+        if (selectedRowIndex5<0) {
+            JOptionPane.showMessageDialog(this, "Please select a row to delete!");
+            return;
+        }
+        
+        DefaultTableModel model = (DefaultTableModel) tblListOfCommunities.getModel();        
+        Community selectedCommunity = (Community) model.getValueAt(selectedRowIndex5, 1);
+        
+        new City().getCommunityList().remove(selectedCommunity);
+        JOptionPane.showMessageDialog(this, "Selected cimmunity's details were deleted successfully.");
+        
+        
+        populateListOfComminitiesTable();
+    }//GEN-LAST:event_SysAdminDeleteCommunityActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2875,6 +3455,14 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel PatientSearchHospJPanel1;
     private javax.swing.JPanel PatientSignUpJPanel;
     private javax.swing.JPanel PatientViewEncounterHistoryJPanel;
+    private javax.swing.JButton SysAdminDeleteCommunity;
+    private javax.swing.JPanel SysAdminDeleteCommunityJPanel;
+    private javax.swing.JButton SysAdminDeleteCommunityNav;
+    private javax.swing.JPanel SysAdminDeleteDoctorJPanel;
+    private javax.swing.JButton SysAdminDeleteHospital;
+    private javax.swing.JPanel SysAdminDeleteHospitalJPanel;
+    private javax.swing.JButton SysAdminDeleteHospitalNav;
+    private javax.swing.JPanel SysAdminDeletePatientJPanel;
     private javax.swing.JPanel SystemAdminMainJPanel;
     private javax.swing.JPanel WelcomeCommAdminJPanel;
     private javax.swing.JPanel WelcomeCommAdminManageCommunityJPanel;
@@ -2884,6 +3472,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel WelcomeHospAdminManageDoctorJPanel;
     private javax.swing.JPanel WelcomeHospAdminManagePatientJPanel;
     private javax.swing.JPanel WelcomePatientJPanel;
+    private javax.swing.JPanel WelcomeSysAdminJPanel;
     private javax.swing.JButton btnAddCommunity;
     private javax.swing.JButton btnAddDoctor;
     private javax.swing.JButton btnAddHospital;
@@ -2908,6 +3497,14 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnSignUp;
     private javax.swing.JButton btnSignUpPatient;
     private javax.swing.JButton btnSubmitDiagnosis;
+    private javax.swing.JButton btnSysAdminCreateCommunity;
+    private javax.swing.JButton btnSysAdminCreateDoctor;
+    private javax.swing.JButton btnSysAdminCreateHospital;
+    private javax.swing.JButton btnSysAdminCreatePatient;
+    private javax.swing.JButton btnSysAdminDeleteDoctor;
+    private javax.swing.JButton btnSysAdminDeleteDoctorNav;
+    private javax.swing.JButton btnSysAdminDeletePatient;
+    private javax.swing.JButton btnSysAdminDeletePatientNav;
     private javax.swing.JButton btnViewRecentVitals;
     private javax.swing.JPanel card;
     private javax.swing.JPanel cardCommAdmin;
@@ -2918,6 +3515,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel cardHospAdminManageDoctor;
     private javax.swing.JPanel cardHospAdminManagePatient;
     private javax.swing.JPanel cardPatient;
+    private javax.swing.JPanel cardSysAdmin;
     private javax.swing.JPanel commAdminManageCommunityNavPanel;
     private javax.swing.JSplitPane commAdminManageCommunitySplitPane;
     private javax.swing.JPanel commAdminManageHospitalsNavPanel;
@@ -2997,6 +3595,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel61;
+    private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel77;
     private javax.swing.JLabel jLabel78;
@@ -3012,6 +3611,10 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JLabel lblBloodPressure;
     private javax.swing.JLabel lblPulse;
     private javax.swing.JLabel lblTemperature;
@@ -3019,9 +3622,15 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JSplitPane mainSplitFrame;
     private javax.swing.JPanel navPanel;
     private javax.swing.JSplitPane splitPane;
+    private javax.swing.JPanel sysAdminNavPanel;
+    private javax.swing.JSplitPane sysAdminSplitPane;
     private javax.swing.JTable tblDoctorList1;
     private javax.swing.JTable tblEncounterHistory;
     private javax.swing.JTable tblHospList1;
+    private javax.swing.JTable tblListOfCommunities;
+    private javax.swing.JTable tblListOfDoctors;
+    private javax.swing.JTable tblListOfHospitals;
+    private javax.swing.JTable tblListOfPatients;
     private javax.swing.JTable tblPatientList;
     private javax.swing.JTextField txtAge;
     private javax.swing.JTextField txtAptDate;
